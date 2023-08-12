@@ -2,9 +2,9 @@
 slug: first-blog-post
 title: First Blog Post
 authors:
-  name: Gao Wei
+  name: Omer Morad
   title: Docusaurus Core Team
-  url: https://github.com/wgao19
+  url: https://github.com/omermorad
   image_url: https://github.com/wgao19.png
 tags: [hola, docusaurus]
 ---
