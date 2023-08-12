@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'AutoMock',
+  title: 'Automock',
   url: 'https://automock.dev',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -15,7 +15,7 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'AutoMock', // Usually your GitHub org/user name.
+  organizationName: 'Automock', // Usually your GitHub org/user name.
   projectName: 'automock.dev', // Usually your repo name.
 
   // Even if you don't use internalization, you can use this field to set useful
@@ -53,23 +53,28 @@ const config = {
   ],
 
   themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+  /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'AutoMock',
+        title: 'Automock',
         logo: {
-          alt: 'AutoMock Logo',
+          alt: 'Automock Logo',
           src: 'img/logo.png',
         },
         items: [
           {
             type: 'doc',
-            docId: 'intro',
+            docId: 'introduction/intro',
             position: 'left',
             label: 'Docs',
           },
+          // {
+          //   to: '/blog',
+          //   label: 'Blog',
+          //   position: 'left'
+          // },
           {
-            href: 'https://github.com/omermorad/automock',
+            href: 'https://github.com/automock/automock',
             label: 'GitHub',
             position: 'right',
           },
@@ -79,15 +84,28 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Introduction',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'What is Automock?',
+                to: '/docs/introduction/intro',
               },
+              // {
+              //   label: 'Installation',
+              //   to: '/docs/introduction/installation',
+              // },
+              // {
+              //   label: 'Basic Example',
+              //   to: '/docs/introduction/basic-example',
+              // },
             ],
           },
         ],
+      },
+      header: {
+        links: [
+          { blog: true, title: 'Blog' },
+        ]
       },
       prism: {
         theme: lightCodeTheme,
