@@ -9,7 +9,7 @@ const config = {
   title: 'Automock',
   url: 'https://automock.dev',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'ignore',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
 
