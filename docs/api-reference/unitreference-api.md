@@ -1,14 +1,17 @@
 ---
 sidebar_position: 5
-description: ''
+description: 'The `UnitReference` API is an interface that offers methods to access and interact with the mocked dependencies of the
+class under test.'
 ---
 
 # UnitReference API
 
+Source package: `@automock/core`
+
 The `UnitReference` API is an interface that offers methods to access and interact with the mocked dependencies of the
 class under test.
 
-### `.get<TDep>(identifier: Type<TDep>): StubbedInstance<TDep>`
+### `.get<TDependency>(identifier: Type<TDependency>): StubbedInstance<TDependency>`
 
 The `.get()` method enables you to fetch a mocked instance of the specified class type. It requires the `identifier`
 parameter, representing the class type of the dependency you want to retrieve. This method returns a `StubbedInstance`
@@ -23,7 +26,7 @@ const mockedDep = unitRef.get(MockedDependency);
 
 ---
 
-### `.get<TDep>(identifier: string): StubbedInstance<TDep>`
+### `.get<TDependency>(identifier: string | symbol): StubbedInstance<TDependency>`
 
 The `.get()` method also permits retrieval of a mocked instance based on a provided token. Supply the `identifier`
 parameter, which stands for the token linked to the dependency to be retrieved. This function returns
@@ -33,12 +36,12 @@ a `StubbedInstance` of the specified class associated with the provided token.
 
 ```typescript
 const { unitRef } = TestBed.create(ClassUnderTest).compile();
-const mockedDep = unitRef.get<TDep>('TOKEN');
+const mockedDep = unitRef.get<TDependency>('CUSTOM_TOKEN');
 ```
 
 ---
 
-### `.get<TDep>(identifier: string, metadata: ReferenceMetadata): StubbedInstance<TDep>`
+### `.get<TDependency>(identifier: string | symbol, metadata: IdentifierMetadata): StubbedInstance<TDependency>`
 
 > :bulb: **Note:** availability might vary depending on the installed Automock adapter. Check the documentation
 of the installed adapter for more details.
@@ -47,7 +50,7 @@ The `.get()` method also allows retrieval of a mocked instance using both a prov
 `identifier` parameter for the token linked to the dependency and include a metadata object. This metadata reference
 provides a detailed way for Automock to distinguish various class dependencies.
 
-Different adapters may suggest distinct interfaces for `ReferenceMetadata`, tailored to their specific needs. Check the
+Different adapters may suggest distinct interfaces for `IdentifierMetadata`, tailored to their specific needs. Check the
 documentation of the installed adapter for precise details.
 
 The method then returns a `StubbedInstance` of the specified class associated with the provided token.
@@ -56,7 +59,20 @@ The method then returns a `StubbedInstance` of the specified class associated wi
 
 ```typescript
 const { unitRef } = TestBed.create(ClassUnderTest).compile();
-const mockedDep = unitRef.get<TDep>('TOKEN', { canFly: false });
+const mockedDep = unitRef.get<TDependency>('CUSTOM_TOKEN', { canFly: false });
+```
+
+### `.get(identifier: string | symbol): ConstantValue`
+
+The `.get()` method allows you to retrieve constant values associated with a provided identifier, which can be either a
+string or a symbol. This is useful when you need to access configuration settings or other constants within your unit
+tests.
+
+**Example:**
+
+```typescript
+const { unitRef } = TestBed.create(ClassUnderTest).compile();
+const value = unitRef.get<string[]>('CONSTANT_VAL_TOKEN');
 ```
 
 ### Return Types

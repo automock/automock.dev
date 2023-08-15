@@ -4,13 +4,10 @@ sidebar_position: 2
 
 # NestJS
 
-Let's explore how Automock effortlessly handles various dependency injection scenarios within NestJS applications, also
-known as "Custom Providers":
+### String / Symbol Based Tokens
 
-### 1. String Tokens
-
-Automock harmoniously supports a wide range of injection tokens that NestJS provides. This includes string-based
-injection tokens like `@Inject('CUSTOM_TOKEN')`:
+Automock seamlessly supports a wide range of injection tokens provided by NestJS, including string-based and
+symbol-based injection tokens:
 
 ```typescript
 @Injectable()
@@ -18,12 +15,22 @@ export class UserService {
   constructor(@Inject('CUSTOM_TOKEN') private readonly customService: CustomService) {}
 }
 ```
+```typescript
+const TokenSymbol = Symbol.for('CUSTOM_TOKEN');
 
-When using Automock, your custom injection tokens are accurately mocked, allowing you to seamlessly mock dependencies
+@Injectable()
+export class UserService {
+  constructor(@Inject(TokenSymbol) private readonly customService: CustomService) {}
+}
+```
+
+> :bulb: **Note:** The same principles apply when using `@Inject(Class)`.
+
+When using Automock, your custom injection tokens are accurately mocked, enabling you to effortlessly mock dependencies
 specified using these tokens. To access the mocked dependency using `unitRef`, follow the example below:
 
 ```typescript
-const {unitRef} = TestBed.create(UserService).compile();
+const { unitRef } = TestBed.create(ClassUnderTest).compile();
 const mockedCustomService = unitRef.get<CustomService>('CUSTOM_TOKEN');
 ```
 
@@ -36,10 +43,10 @@ const { unitRef, unit } = TestBed.create(UserService)
   .compile();
 ```
 
-### 2. Handling `forwardRef`
+### Handling `forwardRef` Tokens
 
 Automock adeptly handles scenarios involving `forwardRef`, an essential tool for managing circular dependencies.
-Automock is equipped to handle both types and strings returned by the `forwardRef` callback:
+Automock is equipped to handle types, strings and symbols returned by the `forwardRef` callback:
 
 ```typescript
 @Injectable()
@@ -47,15 +54,16 @@ export class AuthService {
   constructor(
     @Inject(forwardRef(() => UserService))
     private readonly userService: UserService,
-  ) {
-  }
+  ) {}
 }
 ```
+
+> :bulb: **Note:** The same applies to strings and symbols.
 
 To access the dependency mocked by Automock using `unitRef`, use the following example:
 
 ```typescript
-const {unitRef} = TestBed.create(UserService).compile();
+const { unitRef } = TestBed.create(UserService).compile();
 const mockedUserService = unitRef.get(UserService);
 ```
 
@@ -64,11 +72,11 @@ The same approach applies when using the `.mock().using()` functionality:
 ```typescript
 const {unitRef} = TestBed.create(UserService)
   .mock(UserService)
-  .using({...})
+  .using({ ... })
   .compile();
 ```
 
-### 3. Seamless Integration with Third-Party Libraries
+### Seamless Integration with Third-Party Libraries
 
 NestJS often integrates with third-party libraries that introduce their own decorators and injection tokens. Automock
 elegantly handles such scenarios. For example, when dealing with `@InjectRepository` from TypeORM, simply use the
@@ -80,28 +88,27 @@ export class UserService {
   constructor(
     @InjectRepository(UserEntity)
     private readonly userRepository: Repository<UserEntity>,
-  ) {
-  }
+  ) {}
 }
 ```
 
 To access the dependency mocked by Automock using `unitRef`, use the following example:
 
 ```typescript
-const {unitRef} = TestBed.create(UserService).compile();
-const mockedUserRepository = unitRef.get<UserEntity>(getRepositoryToken(UserEntity) as string);
+const { unitRef } = TestBed.create(UserService).compile();
+const mockedUserRepository = unitRef.get<Repository<UserEntity>>(getRepositoryToken(UserEntity) as string);
 ```
 
 The same approach applies when using the `.mock().using()` functionality:
 
 ```typescript
-const {unitRef} = TestBed.create(UserService)
-  .mock<UserEntity>(getRepositoryToken(UserEntity) as string)
-  .using({...})
+const { unitRef } = TestBed.create(UserService)
+  .mock<Repository<UserEntity>>(getRepositoryToken(UserEntity) as string)
+  .using({ ... })
   .compile();
 ```
 
-### 4. Consistent Behavior for Constructor and Property Injection
+### Consistent Behavior for Constructor and Property Injection
 
 Automock treats both constructor and property injections in the same way. Whether your dependencies are injected via the
 constructor or properties, Automock ensures consistent and accurate mocking:
@@ -114,13 +121,8 @@ export class UserService {
 }
 ```
 
-### 5. Streamlined Testing Setup
+### Streamlined Testing Setup
 
 Automock simplifies your testing setup by eliminating the need for the traditional `Test.createTestingModule` approach.
-With Automock, the intricate configuration of test modules and manual mocking becomes redundant, allowing you to focus
-on writing meaningful test cases.
-
-Automock seamlessly integrates with NestJS, ensuring accurate dependency injection and efficient unit testing. By
-supporting various injection token types, handling `forwardRef`, and accommodating third-party libraries, Automock
-enables you to effortlessly isolate and test individual components within your NestJS applications. Step into the world
-of Automock and experience enhanced NestJS unit testing today!
+The intricate configuration of test modules and manual mocking becomes redundant, allowing you to focus on writing
+meaningful test cases.

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
-description: ''
+description: 'The `MockOverride` interface provides methods for specifying the value or mock implementation to be used for a mocked
+dependency.'
 ---
 
 # MockOverride API
@@ -18,7 +19,7 @@ the `mockImplementation` parameter, which represents the mock implementation for
 **Usage Example:**
 
 ```typescript
-const { unit, unitRef } = TestBed.create(UserService)
+const { unit, unitRef } = TestBed.create(ClassUnderTest)
   .mock(Database)
   .using({ getUsers: async () => [{ id: 1, name: 'John' }] })
   .compile();
@@ -36,7 +37,7 @@ specific methods.
 To add a stub for a specific method, you can use the following syntax:
 
 ```typescript
-const { unit, unitRef } = TestBed.create(UserService)
+const { unit, unitRef } = TestBed.create(ClassUnderTest)
   .mock(Database)
   .using({ getUsers: jest.fn().mockReturnValue([{ id: 1, name: 'John' }]) })
   .compile();
@@ -48,17 +49,17 @@ the mock behavior when combining custom mock implementations with specific stubs
 
 ---
 
-### `.using(value: TValue): TestBedBuilder<TClass>`
+### `.using(value: ConstantValue): TestBedBuilder<TClass>`
 
 The `.using(value)` method allows specifying fixed values to be used for mocked dependencies. It takes the `value`
-parameter, which represents the fixed value for the mocked dependency.
+parameter, which represents the constant value for the mocked dependency.
 
 **Usage Example:**
 
 ```typescript
-const { unit, unitRef } = TestBed.create(UserService)
-  .mock('CUSTOM_TOKEN')
-  .using('some fixed value')
+const { unit, unitRef } = TestBed.create(ClassUnderTest)
+  .mock<string[]>('CUSTOM_TOKEN')
+  .using(['one', 'two', 'three'])
   .compile();
 ```
 

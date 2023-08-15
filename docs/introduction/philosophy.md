@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 title: Philosophy
 ---
 
@@ -36,11 +36,3 @@ Tests." These tests, which focus on isolating a single component for testing, al
 philosophy. By enabling you to effortlessly mock out dependencies, Automock facilitates the creation of Solitary Unit
 Tests that provide true isolation for your code components. This approach empowers you to thoroughly test individual
 units in isolation, adhering to best practices while following Fowler's guidance.
-
-### Unit Testing Becomes Effortless
-
-Automock simplifies the task of penning unit tests by autonomously crafting mock objects for class dependencies, sparing
-you from the tedium of manual mock setup. Tailored for Inversion of Control (IoC) and Dependency Injection (DI)
-scenarios, it effortlessly integrates automated mocking into your framework of choice. With Automock, dissecting and
-evaluating individual components becomes an intuitive process, paving the way for a more efficient and dependable unit
-testing journey.

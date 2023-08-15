@@ -39,7 +39,7 @@ npm i -D @automock/inversify
 
 Automock extends its capabilities to integrate with various dependency injection (DI) frameworks, such as NestJS and
 Inversify, among others. Detailed insights into Automock's adaptability across frameworks are provided on our
-dedicated [Adapters](/docs/adapters) page.
+dedicated [Adapters](/docs/adapters/intro) page.
 
 ## A Multi-Package Approach for Flexibility
 
