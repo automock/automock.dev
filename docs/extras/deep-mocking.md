@@ -8,8 +8,8 @@ Deep mocking can be a heavy operation, as it requires setting the depth of recur
 dependencies. Additionally, using deep mocks can lead to unexpected behavior when calling methods in unit tests, as the
 stubs that have been set might interfere with the desired test outcomes.
 
-While Automock does not directly support deep mocking, we can demonstrate an example of how it might be achieved
-manually:
+**While Automock does not directly support deep mocking, we can demonstrate an example of how it might be achieved
+manually:**
 
 Consider the `ClassWithModels` class, which has a dependency on the `PrismaService`. To create a deep mock for this class,
 we can provide a custom mock implementation for the nested methods of the models' property. In this example, we'll use

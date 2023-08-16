@@ -7,7 +7,12 @@ sidebar_position: 2
 ## Quick Install
 
 To fully integrate Automock into your testing and dependency injection (DI) frameworks, **you'll need to install two
-packages:** the Automock adapter for your chosen testing framework and the corresponding DI framework adapter.
+packages: the Automock adapter for your chosen testing framework and the corresponding DI framework adapter.**
+
+| DI Framework Adapter | Jest (`@automock/jest`) | Sinon (`@automock/sinon`) |
+|----------------------|-------------------------|---------------------------|
+| NestJS               | :white_check_mark:      | :white_check_mark:        |
+| Inversify            | :white_check_mark:      | :white_check_mark:        |
 
 For **Jest**:
 
@@ -26,34 +31,24 @@ npm i -D @automock/sinon
 For **NestJS**:
 
 ```bash
-npm i -D @automock/nestjs
+npm i -D @automock/adapters.nestjs
 ```
 
 For **Inversify**:
 
 ```bash
-npm i -D @automock/inversify
+npm i -D @automock/adapters.inversify
 ```
 
-## Seamless Integration with Packages & Testing Frameworks
+## Collaborating with Different Testing Frameworks
+
+Automock has been designed to work with an array of testing frameworks. This includes popular choices like Jest and
+Sinon. It's essential to install both the core package of your selected testing framework and the corresponding Automock
+adapter package. For example, when opting for Jest, simultaneously install `@automock/jest` alongside the Jest package.
+Similarly, if you're using Sinon, pair the Sinon package with `@automock/sinon`.
+
+## Seamless Integration with Different DI Frameworks
 
 Automock extends its capabilities to integrate with various dependency injection (DI) frameworks, such as NestJS and
 Inversify, among others. Detailed insights into Automock's adaptability across frameworks are provided on our
 dedicated [Adapters](/docs/adapters/intro) page.
-
-## A Multi-Package Approach for Flexibility
-
-Automock adopts a multi-package structure to foster flexible integration with diverse testing frameworks. Upon
-installing either `@automock/jest` or `@automock/sinon`, you'll automatically include the core logic along with
-essential packages like `@automock/common`, `@automock/types`, and `@automock/core`.
-
-The bedrock of Automock lies in the `@automock/core` package. This package contains the foundational logic that enables
-the automatic mocking of class dependencies.
-
-## Collaborating with Different Testing Frameworks
-
-Automock has been thoughtfully designed to work harmoniously with an array of testing frameworks. This includes popular
-choices like Jest and Sinon. To harness the power of Automock, it's essential to install both the core package of your
-selected testing framework and the corresponding Automock adapter package. For example, when opting for Jest,
-simultaneously install `@automock/jest` alongside the Jest package. Similarly, if you're using Sinon, pair the Sinon
-package with `@automock/sinon`.

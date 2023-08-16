@@ -4,24 +4,26 @@ sidebar_position: 5
 
 # Fundamental Concepts
 
-In the world of unit testing and test doubles, you'll come across various terms like stubs and mocks. It's important to
-understand these concepts and how they relate to Automock. Additionally, we'll delve into Solitary Unit Tests, a
-foundational approach for writing effective tests.
+In the realm of unit testing, understanding key concepts like Solitary Unit Tests, Stubs, Mocks, and the role of testing
+frameworks is essential. These concepts provide the foundation for effective and reliable testing practices, setting the
+stage for successful use of tools like Automock. Note that this section covers fundamental testing concepts, decoupled from the specific use of Automock.
 
 ## Solitary Unit Tests
 
-**Solitary Unit Tests** emphasize testing a single unit of code in isolation from its dependencies. This approach
-ensures that each component is thoroughly tested without being affected by the behavior of other components. Automock
-enhances the process of writing Solitary Unit Tests by simplifying the mocking of class dependencies.
+**Solitary Unit Tests** form the cornerstone of effective testing strategies. These tests focus on assessing a single
+unit of code in complete isolation from its external dependencies. By isolating the unit under test, you ensure that
+testing results accurately reflect the behavior of that specific unit, free from any unintended interactions or
+dependencies on other components.
 
 ## Stubs
 
-**Stubs** are objects or functions that mimic the behavior of a real component but provide controlled and predictable
-outputs. They help isolate the unit under test by substituting real dependencies with predetermined responses.
+**Stubs** are versatile tools that help isolate units for testing by mimicking real components' behavior with
+controlled, predictable responses. A stub replaces a real dependency, allowing you to define how it should behave during
+tests.
 
 ### Example using Jest
 
-In Jest, you can create a stub using the `jest.fn()` function. Here's how you can stub a method:
+In Jest, creating a stub involves the `jest.fn()` function. Here's how you can stub a method:
 
 ```typescript
 const mockFunction = jest.fn();
@@ -32,16 +34,13 @@ console.log(mockFunction()); // Output: Hello, World!
 
 ## Mocks
 
-Mocks are objects that simulate the behavior of real components and allow you to make assertions about their
-interactions. In a sense, mocks are collections of stubs, each of which has predefined behavior to mimic specific
-scenarios. These objects not only define how methods should behave and what values they should return but also have the
-ability to record method calls and verify how many times they were invoked. This capability makes mocks more powerful
-than simple stubs, as they provide a comprehensive way to track and validate the interactions between components during
-testing.
+**Mocks** are advanced versions of stubs. A mock is a collection of stubs, each emulating specific behavior scenarios.
+In addition to returning predefined values, mocks also track method calls and their invocations, allowing you to verify
+interactions during testing.
 
 ### Example using Sinon
 
-In Sinon, you can create a mock using the `sinon.createStubInstance()` function. Here's how you can mock a method:
+In Sinon, you can create a mock with `sinon.createStubInstance()`. Here's an example:
 
 ```typescript
 const mockObject = sinon.createStubInstance(MyClass);
@@ -50,31 +49,11 @@ mockObject.myMethod.returns("Hello, World!");
 console.log(mockObject.myMethod()); // Output: Hello, World!
 ```
 
-### Example with Automock
+## Understanding `jest.Mocked` and `SinonStubbedInstance`
 
-Suppose you have a `UserService` class with a dependency on `CustomService`. Automock simplifies the mocking process,
-allowing you to focus on testing `UserService` in isolation:
-
-```typescript
-// UserService.ts
-@Injectable()
-export class UserService {
-  constructor(private readonly customService: CustomService) {
-  }
-}
-
-// UserService.spec.ts
-const {unitRef} = TestBed.create(UserService).compile();
-unitRef.mock<CustomService>('CustomService').using({ /* mock properties */});
-
-// Now you can test UserService in isolation
-```
-
-## `jest.Mocked` and `SinonStubbedInstance`
-
-When using Jest and Sinon along with Automock, you can take advantage of type definitions like `jest.Mocked`
-and `SinonStubbedInstance`. These types enhance your ability to access and interact with the mocked versions of your
-dependencies, providing autocompletion and type safety.
+When using Jest and Sinon, these specialized types offer enhanced interaction with mocked dependencies. The
+`jest.Mocked` type and `SinonStubbedInstance` type provide autocompletion and type safety, streamlining your unit
+testing experience.
 
 ### Example with `jest.Mocked`
 
@@ -100,11 +79,20 @@ myStubbedInstance.myMethod.returns("Hello, World!");
 console.log(myStubbedInstance.myMethod()); // Output: Hello, World!
 ```
 
-Understanding these definitions and how Automock interacts with them can greatly enhance your unit testing experience.
+## Role of Testing Frameworks
 
-Keep in mind that while the terms "stub" and "mock" are commonly used, different testing frameworks might have
-variations in their behavior. Automock aims to provide a unified and straightforward experience across various testing
-libraries.
+In the software testing landscape, several core concepts ensure code quality and reliability. These concepts include a
+test runner, an assertion library, and a test doubles library.
 
-By mastering these concepts and leveraging Automock, you'll be equipped to write thorough, focused, and reliable unit
-tests that contribute to the quality of your codebase.
+* A **test runner** automates test execution, organizing test suites and presenting results coherently.
+
+* An **assertion library** defines and performs assertions, validating expected behavior.
+
+* A **test doubles library** facilitates the creation and management of test doubles like stubs, spies, and mocks.
+
+A popular combination of these is Mocha (test runner), Chai (assertion library), and Sinon (test doubles library). Jest
+integrates all these into one comprehensive testing framework. Automock primarily focuses on Jest and Sinon, providing
+an integrated solution for automatic mock generation and dependency injection management.
+
+Understanding these concepts empowers you to write comprehensive and effective unit tests, contributing to the quality
+of your codebase.

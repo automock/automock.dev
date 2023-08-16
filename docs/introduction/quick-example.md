@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Basic Example
+# Quick Example
 
 To illustrate the fundamental principle of Automock, let's consider a simple scenario where you have a `UserService`
 class that depends on a `Database` service for data retrieval. Traditionally, writing unit tests for such scenarios
@@ -23,6 +23,8 @@ class UserService {
   }
 }
 ```
+
+> :bulb: **Note:** Both property injection and constructor injection are supported, Automock handles both scenarios seamlessly.
 
 ```typescript
 import { TestBed } from '@automock/jest';

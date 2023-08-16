@@ -1,11 +1,13 @@
 ---
 sidebar_position: 4
+title: Improving CI Pipeline
 ---
 
-# Improving Continuous Integration (CI)
+# Improving Continuous Integration Pipeline
 
-Automock can greatly enhance your CI pipeline. Since it automatically mocks all class dependencies, you can confidently
-assume that your unit tests are executed in complete isolation, creating a solitary unit testing environment.
+**Automock can greatly enhance your CI pipeline. Since it automatically mocks all class dependencies, you can
+confidently assume that your unit tests are executed in complete isolation, creating a solitary unit testing
+environment.**
 
 We recommend naming your test files with a specific suffix, such as `*.spec.ts` or `*.unit.ts`. This convention allows
 you to easily distinguish and run your unit tests separately.

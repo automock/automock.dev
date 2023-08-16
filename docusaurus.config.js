@@ -12,106 +12,92 @@ const config = {
   onBrokenLinks: 'ignore',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'Automock', // Usually your GitHub org/user name.
-  projectName: 'automock.dev', // Usually your repo name.
-
-  // Even if you don't use internalization, you can use this field to set useful
-  // metadata like html lang. For example, if your site is Chinese, you may want
-  // to replace "en" with "zh-Hans".
+  organizationName: 'Automock',
+  projectName: 'automock.dev',
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
   },
-
   presets: [
     [
-      'classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
+      '@docusaurus/preset-classic',
+      {
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
+          path: 'docs',
+          routeBasePath: 'docs',
+          sidebarPath: require.resolve('./docs-sidebars.js'),
           editUrl:
             'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
-      }),
+      },
     ],
   ],
-
-  themeConfig:
-  /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
-      navbar: {
-        title: 'Automock',
-        logo: {
-          alt: 'Automock Logo',
-          src: 'img/logo.png',
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'api-reference',
+        path: 'api-reference',
+        routeBasePath: 'api-reference',
+        sidebarPath: require.resolve('./api-sidebars.js'),
+      },
+    ],
+  ],
+  themeConfig: {
+    colorMode: {
+      defaultMode: 'dark',
+    },
+    navbar: {
+      title: 'Automock',
+      logo: {
+        alt: 'Automock Logo',
+        src: 'img/logo.png',
+      },
+      items: [
+        {
+          type: 'doc',
+          docId: 'introduction/intro',
+          position: 'left',
+          label: 'Docs',
         },
-        items: [
-          {
-            type: 'doc',
-            docId: 'introduction/intro',
-            position: 'left',
-            label: 'Docs',
-          },
-          // {
-          //   to: '/blog',
-          //   label: 'Blog',
-          //   position: 'left'
-          // },
-          {
-            href: 'https://github.com/automock/automock',
-            label: 'GitHub',
-            position: 'right',
-          },
-        ],
-      },
-      footer: {
-        style: 'dark',
-        links: [
-          {
-            title: 'Introduction',
-            items: [
-              {
-                label: 'What is Automock?',
-                to: '/docs/introduction/intro',
-              },
-              // {
-              //   label: 'Installation',
-              //   to: '/docs/introduction/installation',
-              // },
-              // {
-              //   label: 'Basic Example',
-              //   to: '/docs/introduction/basic-example',
-              // },
-            ],
-          },
-        ],
-      },
-      header: {
-        links: [
-          { blog: true, title: 'Blog' },
-        ]
-      },
-      prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
-      },
-    }),
+        {
+          to: 'api-reference/category/api-reference',
+          label: 'API Reference',
+          position: 'left',
+        },
+        {
+          href: 'https://github.com/automock/automock',
+          position: 'right',
+          className: 'header-github-link',
+        },
+      ],
+    },
+    footer: {
+      style: 'dark',
+      links: [
+        {
+          title: 'Introduction',
+          items: [
+            {
+              label: 'What is Automock?',
+              to: '/docs/introduction/intro',
+            },
+            {
+              label: 'API Reference',
+              to: '/api-reference',
+            },
+          ],
+        },
+      ],
+    },
+    prism: {
+      theme: lightCodeTheme,
+      darkTheme: darkCodeTheme,
+    },
+  },
 };
 
 module.exports = config;

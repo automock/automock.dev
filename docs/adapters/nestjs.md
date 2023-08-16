@@ -70,7 +70,7 @@ const mockedUserService = unitRef.get(UserService);
 The same approach applies when using the `.mock().using()` functionality:
 
 ```typescript
-const {unitRef} = TestBed.create(UserService)
+const { unitRef } = TestBed.create(UserService)
   .mock(UserService)
   .using({ ... })
   .compile();
