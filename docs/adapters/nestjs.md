@@ -4,27 +4,44 @@ sidebar_position: 2
 
 # NestJS
 
-### String / Symbol Based Tokens
+In this page, we'll embark on a deep dive into the capabilities of the Automock adapter for NestJS. From handling
+various injection tokens to effortlessly integrating with third-party libraries, we'll explore how Automock enhances the
+unit testing experience for NestJS developers. So, whether you're a seasoned NestJS veteran or just getting started,
+this doc aims to equip you with the knowledge to harness the full potential of Automock in your testing endeavors.
 
-Automock seamlessly supports a wide range of injection tokens provided by NestJS, including string-based and
-symbol-based injection tokens:
+### Injection Tokens
+
+Automock seamlessly supports a wide range of injection tokens provided by NestJS, including string-based, class-based
+and symbol-based injection tokens:
 
 ```typescript
 @Injectable()
-export class UserService {
-  constructor(@Inject('CUSTOM_TOKEN') private readonly customService: CustomService) {}
+class UserService {
+  constructor(@Inject('CUSTOM_TOKEN') private customService: CustomService) {}
 }
 ```
+
 ```typescript
 const TokenSymbol = Symbol.for('CUSTOM_TOKEN');
 
 @Injectable()
-export class UserService {
-  constructor(@Inject(TokenSymbol) private readonly customService: CustomService) {}
+class UserService {
+  constructor(@Inject(TokenSymbol) private customService: CustomService) {}
 }
 ```
 
-> :bulb: **Note:** The same principles apply when using `@Inject(Class)`.
+```typescript
+// Suppose we have a logger interface
+interface Logger { ... }
+
+// And a concrete logger class
+class ConcreteLoggerClass implements Logger { ... }
+
+@Injectable()
+export class UserService {
+  constructor(@Inject(ConcreteLoggerClass) private logger: Logger) {}
+}
+```
 
 When using Automock, your custom injection tokens are accurately mocked, enabling you to effortlessly mock dependencies
 specified using these tokens. To access the mocked dependency using `unitRef`, follow the example below:
@@ -52,13 +69,12 @@ Automock is equipped to handle types, strings and symbols returned by the `forwa
 @Injectable()
 export class AuthService {
   constructor(
-    @Inject(forwardRef(() => UserService))
-    private readonly userService: UserService,
+    @Inject(forwardRef(() => UserService)) private userService: UserService,
   ) {}
 }
 ```
 
-> :bulb: **Note:** The same applies to strings and symbols.
+> :bulb: **Note:** The same applies to string and symbols.
 
 To access the dependency mocked by Automock using `unitRef`, use the following example:
 

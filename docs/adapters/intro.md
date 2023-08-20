@@ -21,3 +21,12 @@ allowing you to employ consistent methods and patterns regardless of the framewo
 Automock offers a unified API while seamlessly adjusting to the intricacies of different frameworks. Fundamental
 methods, such as `UnitReference` `.get()` and `MockOverride` `.mock()`, retain their consistency across frameworks.
 However, the outcome of these methods might differ based on the underlying testing or DI framework.
+
+### Supported DI Frameworks 
+
+| **DI Framework Adapter**                               | **Jest (`@automock/jest`)** | **Sinon (`@automock/sinon`)** |
+|--------------------------------------------------------|----------------------------|-------------------------------|
+| **NestJS Adapter (`@automock/adapters.nestjs`)**       | :white_check_mark:         | :white_check_mark:            |
+| **Inversify Adapter (`@automock/adapters.inversify`)** | :white_check_mark:         | :white_check_mark:            |
+| **Ts.ED Adapter (`@automock/adapters.tsed`)**          | Soon                       | Soon                          |
+| **TypeDI Adapter (`@automock/adapters.typedi`)**       | Soon                       | Soon                          |
