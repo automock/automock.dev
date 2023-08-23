@@ -9,10 +9,9 @@ various injection tokens to effortlessly integrating with third-party libraries,
 unit testing experience for NestJS developers. So, whether you're a seasoned NestJS veteran or just getting started,
 this doc aims to equip you with the knowledge to harness the full potential of Automock in your testing endeavors.
 
-### Injection Tokens
+## Supported Injection Tokens
 
-Automock seamlessly supports a wide range of injection tokens provided by NestJS, including string-based, class-based
-and symbol-based injection tokens:
+Automock seamlessly supports a wide range of injection tokens provided by NestJS
 
 ```typescript
 @Injectable()

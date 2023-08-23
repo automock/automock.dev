@@ -7,12 +7,7 @@ sidebar_position: 2
 ## Quick Install
 
 To fully integrate Automock into your testing and dependency injection (DI) frameworks, **you'll need to install two
-packages: the Automock adapter for your chosen testing framework and the corresponding DI framework adapter.**
-
-| DI Framework Adapter | Jest (`@automock/jest`)   | Sinon (`@automock/sinon`)   |
-|----------------------|---------------------------|-----------------------------|
-| NestJS               | :white_check_mark:        | :white_check_mark:          |
-| Inversify            | :white_check_mark: (Beta) | :white_check_mark: (Beta)   |
+packages: the Automock package for your chosen testing framework and the corresponding DI framework adapter.**
 
 For **Jest**:
 
@@ -28,17 +23,12 @@ npm i -D @automock/sinon
 
 **And for your DI framework, choose the appropriate Automock adapter:**
 
-For **NestJS**:
-
-```bash
-npm i -D @automock/adapters.nestjs
-```
-
-For **Inversify**:
-
-```bash
-npm i -D @automock/adapters.inversify
-```
+| **DI Framework Adapter**                               | **Jest (`@automock/jest`)** | **Sinon (`@automock/sinon`)** |
+|--------------------------------------------------------|-----------------------------|-------------------------------|
+| **NestJS Adapter (`@automock/adapters.nestjs`)**       | :white_check_mark:          | :white_check_mark:            |
+| **Inversify Adapter (`@automock/adapters.inversify`)** | :white_check_mark: (Beta)   | :white_check_mark: (Beta)     |
+| **Ts.ED Adapter (`@automock/adapters.tsed`)**          | Soon                        | Soon                          |
+| **TypeDI Adapter (`@automock/adapters.typedi`)**       | Soon                        | Soon                          |
 
 ## Seamless Integration with Different DI Frameworks
 

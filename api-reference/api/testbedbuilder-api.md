@@ -5,14 +5,25 @@ description: 'The `TestBedBuilder` interface provides methods for configuring an
 
 # TestBedBuilder API
 
-Source package: `@automock/core`
+:package: Source package: `@automock/core`
 
 The `TestBedBuilder` interface provides methods for configuring and compiling the `TestBed`.
 
-### `.mock(identifier: Type<TDependency>): MockOverride<TDependency, TClass>`
+The `.mock()` method is a foundational part of the `TestBedBuilder` API, designed to facilitate the mocking of
+dependencies in your tests. By accepting a generic argument `TDependency`, it provides type safety, ensuring that the
+mocked dependency aligns with the expected type. Once invoked, this method returns a `MockOverride` instance. This
+returned instance grants you the capability to define custom implementations, behaviors, and other attributes for the
+mocked dependency.
 
-The `.mock(identifier)` method is used to declare a dependency to be mocked using its type. It takes the `type`
-parameter, which represents the type of the dependency to be mocked.
+---
+
+### `.mock<TDependency>(type: Type<TDependency>): MockOverride<TDependency, TClass>`
+
+The `.mock(type)` method is used to declare a dependency to be mocked using its type. The `TDependency` generic
+parameter represents the type of the dependency that you want to mock.
+
+The method takes the `type` parameter, which represents the type of the dependency to be mocked. This type is then used
+to create a mock override, which can be further configured using the .using() method.
 
 **Usage Example:**
 
@@ -23,19 +34,16 @@ const { unit, unitRef } = TestBed.create(ClassUnderTest)
   .compile();
 ```
 
-In this example, the `Database` dependency is declared to be mocked using its type. The `.using()` method allows you to
-provide default values or behavior for the methods of the mocked dependency.
-
 ---
 
-### `.mock<TDependency>(identifier: string | symbol): MockOverride<TDependency, TClass>`
+### `.mock<TDependency>(token: string | symbol): MockOverride<TDependency, TClass>`
 
-The `.mock(identifier)` method is used to declare a dependency to be mocked using a token string or symbol. It takes
-the `identifier` parameter, which represents the token string/symbol representing the dependency to be mocked.
+The `.mock(token)` method is used to declare a dependency to be mocked using a string-based or symbol-based token.
+It takes the `token` parameter, which represents the string or symbol token representing the dependency to be mocked.
 
 When using `.mock()` method with a token identifier, the type of the dependency is not known at compile time. To specify
-the type, use the generic argument like `.mock<SomeType>('CUSTOM_TOKEN')`. This provides better type safety and ensures that
-the mocked value aligns with the expected type.
+the type, use the `TDependency` generic argument like `.mock<SomeType>('CUSTOM_TOKEN')`. This provides better type
+safety and ensures that the mocked value aligns with the expected type.
 
 **Usage Example:**
 
@@ -46,37 +54,28 @@ const { unit, unitRef } = TestBed.create(ClassUnderTest)
   .compile();
 ```
 
-> :bulb: The `using()` method allows you to provide default values or behavior for the methods of the mocked dependency,
-> read more in the `MockOverride` API Reference
-
 ---
 
 ### `.mock<TDependency>(identifier: string | symbol, metadata: IdentifierMetadata): MockOverride<TDependency, TClass>`
 
-> :bulb: **Note:** availability might vary depending on the installed Automock adapter. Check the documentation
-of the installed adapter for more details.
+The `.mock()` method, in this context, accepts two parameters:
 
-The `.mock()` method takes two parameters: `identifier` (string or symbol token), representing the token associated with
-the dependency you want to mock, and `metadata`, which provides a detailed reference for Automock to identify distinct
-class dependencies. **This metadata reference might differ based on the installed Automock adapter, tailored to specific
-adapter needs.**
-
-Different adapters may suggest distinct interfaces for `IdentifierMetadata`, so it's recommended to check the
-documentation of the installed adapter for accurate details.
-
-This method returns a `MockOverride` that allows you to provide custom implementation, behaviors, and other attributes
-to the mocked dependency. It's a powerful tool to tailor the behavior of the mock to your test requirements.
+- `identifier`: A string or symbol token that represents the unique identifier associated with the dependency you intend
+  to mock.
+- `metadata`: Additional information that aids Automock in distinguishing between similar class dependencies.
 
 **Example:**
 
 ```typescript
 const { unitRef, unit } = TestBed.create(ClassUnderTest)
-  .mock<TDependency>('CUSTOM_TOKEN', { canFly: true })
-  .using({ ... })
+  .mock<SomeType>('CUSTOM_TOKEN', { canFly: true })
+  .using({...})
   .compile();
 
-unitRef.get('CUSTOM_TOKEN', { canFly: true });
+unitRef.get('CUSTOM_TOKEN', {canFly: true});
 ```
+
+> :bulb: **Note:** The structure and availability of `IdentifierMetadata` can vary based on the Automock adapter in use. Different adapters might define unique interfaces for `IdentifierMetadata` to cater to their specific requirements. Therefore, it's advisable to consult the documentation of your installed adapter to understand the precise details and capabilities.
 
 ---
 

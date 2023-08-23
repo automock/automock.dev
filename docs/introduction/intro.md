@@ -25,52 +25,36 @@ Automock, you can:**
 - Maintain a uniform syntax and structure throughout your unit tests.
 - Utilize type-accurate mocks that mirror the type attributes of genuine objects, bolstering code sustainability.
 
-## Quick Example
+## The Challenge of Traditional Dependency Injection
 
-To illustrate the fundamental principle of Automock, let's consider a simple scenario where you have a `UserService`
-class that depends on a `Database` service for data retrieval.
+Dependency Injection (DI) is a powerful design pattern that promotes inversion of control, making software architectures
+more modular and testable. In many frameworks, the DI container (or IoC container) is responsible for resolving
+dependencies. When unit testing, developers often need to interact with this container, replacing real implementations
+with stubs or mocks to isolate the unit of work. This traditional approach has its challenges:
 
-```typescript
-class Database {
-  getUsers(): Promise<User[]> { ... }
-}
+* **Complexity:** Interacting with the DI container often requires a deep understanding of the framework's internals,
+  setting up tests can become complex.
 
-class UserService {
-  constructor(private database: Database) {}
+* **Maintenance Overhead:** As the application grows, maintaining these stubs and ensuring they align with the actual
+  implementations can become tedious.
 
-  async getAllUsers(): Promise<User[]> {
-    return this.database.getUsers();
-  }
-}
-```
+* **Performance:** Interacting with the real DI container can introduce unnecessary overhead in tests, especially when
+  the container performs additional tasks like lifecycle management or module initialization.
 
-```typescript
-import { TestBed } from '@automock/jest';
+## The Automock Advantage
 
-describe('User Service Unit Test', () => {
-  let userService: UserService;
-  let database: jest.Mocked<Database>;
+Automock introduces a paradigm shift. Instead of relying on the actual DI container, Automock creates a virtual
+environment where dependencies are automatically mocked. This approach offers several advantages:
 
-  beforeAll(() => {
-    const { unit, unitRef } = TestBed.create(UserService).compile();
+* **Simplicity:** There's no need to manually set up the DI container or replace dependencies with stubs. Automock
+  handles this automatically, making test setups straightforward and concise.
 
-    userService = unit;
-    database = unitRef.get(Database);
-  });
+* **Isolation:** Since Automock doesn't communicate with the real DI container, tests are truly isolated. This ensures
+  that external factors or changes in the DI container's behavior don't inadvertently affect your tests.
 
-  test('should retrieve users from the database', async () => {
-    const mockUsers: User[] = [{ id: 1, name: 'John' }, { id: 2, name: 'Jane' }];
-    database.getUsers.mockResolvedValue(mockUsers);
+* **Performance:** Without the overhead of the actual DI container, tests run faster and more efficiently.
 
-    const users = await userService.getAllUsers();
-
-    expect(database.getUsers).toHaveBeenCalled();
-    expect(users).toEqual(mockUsers);
-  });
-});
-```
-
-## Embracing a Spectrum of Testing Frameworks and DI
+## Embracing a Spectrum of Testing and DI Frameworks
 
 | **DI Framework Adapter**                               | **Jest (`@automock/jest`)** | **Sinon (`@automock/sinon`)** |
 |--------------------------------------------------------|-----------------------------|-------------------------------|

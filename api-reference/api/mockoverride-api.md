@@ -6,15 +6,20 @@ dependency.'
 
 # MockOverride API
 
-Source package: `@automock/core`
+:package: Source package: `@automock/core`
 
-The `MockOverride` interface provides methods for specifying the value or mock implementation to be used for a mocked
+The `MockOverride` interface is designed to provide the ability to define specific overrides for mocking dependencies
+within a test environment. When working with the `TestBedBuilder` API, invoking the `.mock()` method will yield an
+instance of `MockOverride`. This interface provides methods that let you specify whether the mocked dependency should
+return a constant value or follow a custom mock implementation.
+
+---
+
+### `.using<TDependency>(mockImplementation: DeepPartial<TDependency>): TestBedBuilder<TClass>`
+
+This variant of the `.using()` method enables you to provide a mock implementation for the dependency. By supplying
+a `DeepPartial` of the `TDependency` type, you can define specific behaviors for methods or properties of the mocked
 dependency.
-
-### `.using(mockImplementation: TImpl): TestBedBuilder<TClass>`
-
-The `.using(mockImplementation)` method specifies the mock implementation to be used for the mocked dependency. It takes
-the `mockImplementation` parameter, which represents the mock implementation for the mocked dependency.
 
 **Usage Example:**
 
@@ -25,14 +30,10 @@ const { unit, unitRef } = TestBed.create(ClassUnderTest)
   .compile();
 ```
 
-In this example, the `.using()` method is used to specify the mock implementation for the mocked dependency.
-The `mockImplementation` parameter can be an object representing the mock implementation, providing custom responses for
-specific methods.
-
-> :bulb: **Note:** When using `.using()` to provide a mock implementation, the subject being mocked (in the `.mock(...)` method)
-> will be replaced completely without any stubs. This means that methods not explicitly defined in the `mockImplementation` object
-> will not have any behavior. If you still want to provide stubs for specific methods while using a custom implementation, you can
-> do so using Jest's `jest.fn()` (or Sinon's `sinon.stub()`).
+When using `.using()` to provide a mock implementation, the subject being mocked will be replaced completely without any
+stubs. This means that methods not explicitly defined in the `mockImplementation` object will not have any behavior. If
+you still want to provide stubs for specific methods while using a custom implementation, you can do so using
+Jest's `jest.fn()` (or Sinon's `sinon.stub()`).
 
 To add a stub for a specific method, you can use the following syntax:
 
@@ -49,23 +50,29 @@ the mock behavior when combining custom mock implementations with specific stubs
 
 ---
 
-### `.using(value: ConstantValue): TestBedBuilder<TClass>`
+### `.using<TDependency>(value: TDependency & ConstantValue): TestBedBuilder<TClass>`
 
-The `.using(value)` method allows specifying fixed values to be used for mocked dependencies. It takes the `value`
-parameter, which represents the constant value for the mocked dependency.
+This method allows you to set a constant value for the mocked dependency.
+
+#### Understanding `ConstantValue` Terminology
+
+In Dependency Injection frameworks, it's common to inject not just classes but also values. These values are often fixed
+or primitive, ensuring a predictable behavior for the mocked dependency in your tests. The `ConstantValue` type in
+Automock encapsulates these fixed or primitive values, allowing you to mock dependencies that are values rather than
+classes.
+
+The `ConstantValue` type is imported from `@automock/common`:
+
+```typescript
+type ConstantValue = unknown[] | string | number | boolean | symbol | null;
+```
 
 **Usage Example:**
 
 ```typescript
-const { unit, unitRef } = TestBed.create(ClassUnderTest)
-  .mock<string[]>('CUSTOM_TOKEN')
-  .using(['one', 'two', 'three'])
+TestBed.create(MyClass)
+  .mock<string[]>('DependencyToken')
+  .using(['item1', 'item2', 'item3'])
   .compile();
 ```
 
-In this example, the `.using()` method is used to specify the fixed value for the mocked dependency. The `value`
-parameter represents the value that will be returned when the mocked dependency is requested during the test execution.
-
-> :bulb: **Note:** When using `.using()` to provide a fixed value, the subject being mocked (in the `.mock(...)` method)
-> will be replaced completely by the provided value. This means that the mocked dependency will always return the specified
-> value, regardless of its original implementation.
