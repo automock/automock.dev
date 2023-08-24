@@ -46,6 +46,21 @@ const config = {
         sidebarPath: require.resolve('./api-sidebars.js'),
       },
     ],
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          {
+            to: '/docs',
+            from: '/docs/getting-started',
+          },
+          {
+            to: '/api-reference',
+            from: '/api-reference/category/api-reference'
+          },
+        ],
+      },
+    ],
   ],
   themeConfig: {
     colorMode: {
