@@ -1,6 +1,6 @@
 module.exports = {
-  appId: '75V27ZS1SQ',
-  apiKey: 'b729950817be322fa67e6f1dd2267dd0',
+  appId: 'V7T2AOSBQC',
+  apiKey: '3e97d584fb2fd1d9213ac18d61e83845',
   rateLimit: 8,
   maxDepth: 10,
   startUrls: ['https://automock.dev/', 'https://automock.dev/api-reference', 'https://automock.dev/docs'],
