@@ -3,6 +3,7 @@
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const algoliaConfig = require('./algolia-config');
 
 const config = {
   title: 'Automock',
@@ -66,14 +67,7 @@ const config = {
     colorMode: {
       defaultMode: 'dark',
     },
-    algolia: {
-      appId: '75V27ZS1SQ',
-      apiKey: 'b729950817be322fa67e6f1dd2267dd0',
-      indexName: 'automock',
-      contextualSearch: true,
-      externalUrlRegex: 'automock\\.dev|localhost:3000',
-      searchPagePath: 'search',
-    },
+    algolia: algoliaConfig,
     navbar: {
       title: 'Automock',
       logo: {
