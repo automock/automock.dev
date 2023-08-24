@@ -1,0 +1,9 @@
+[[redirects]]
+from = "/docs"
+to = "/docs/getting-started"
+status = 200
+
+[[redirects]]
+from = "/api-reference"
+to = "/api-reference/category/api-reference"
+status = 200

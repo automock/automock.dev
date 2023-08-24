@@ -4,14 +4,13 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
-/** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Automock',
   url: 'https://automock.dev',
   baseUrl: '/',
   onBrokenLinks: 'ignore',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.png',
   organizationName: 'Automock',
   projectName: 'automock.dev',
   i18n: {
@@ -48,9 +47,18 @@ const config = {
       },
     ],
   ],
+  // themes: ['@docusaurus/theme-search-algolia'],
   themeConfig: {
     colorMode: {
       defaultMode: 'dark',
+    },
+    algolia: {
+      appId: 'MOU68PFI18',
+      apiKey: '80847d6aae78a141a4726d0f08a8d84f',
+      indexName: 'Automock',
+      contextualSearch: true,
+      externalUrlRegex: 'automock\\.dev|localhost:3000',
+      searchPagePath: 'search',
     },
     navbar: {
       title: 'Automock',
@@ -60,13 +68,12 @@ const config = {
       },
       items: [
         {
-          type: 'doc',
-          docId: 'introduction/intro',
+          to: '/docs',
           position: 'left',
           label: 'Docs',
         },
         {
-          to: 'api-reference/category/api-reference',
+          to: '/api-reference',
           label: 'API Reference',
           position: 'left',
         },
@@ -81,15 +88,36 @@ const config = {
       style: 'dark',
       links: [
         {
-          title: 'Introduction',
+          title: 'Quick Navigation',
           items: [
             {
-              label: 'What is Automock?',
-              to: '/docs/introduction/intro',
+              label: 'Getting Started',
+              to: '/docs/getting-started/',
             },
             {
-              label: 'API Reference',
-              to: '/api-reference',
+              label: 'Installation',
+              to: '/docs/getting-started/installation',
+            },
+            {
+              label: 'Step-by-Step Example',
+              to: '/docs/getting-started/examples',
+            },
+          ],
+        },
+        {
+          title: 'API Reference',
+          items: [
+            {
+              label: 'TestBed',
+              to: '/api-reference/api/testbed-api',
+            },
+            {
+              label: 'TestBedBuilder',
+              to: '/api-reference/api/testbedbuilder-api',
+            },
+            {
+              label: 'UnitReference',
+              to: '/api-reference/api/unitreference-api',
             },
           ],
         },
