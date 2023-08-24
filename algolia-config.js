@@ -3,15 +3,15 @@ module.exports = {
   apiKey: 'b729950817be322fa67e6f1dd2267dd0',
   rateLimit: 8,
   maxDepth: 10,
-  startUrls: ['https://automock.dev/'],
+  startUrls: ['https://automock.dev/', 'https://automock.dev/api-reference', 'https://automock.dev/docs'],
   sitemaps: ['https://automock.dev/sitemap.xml'],
   ignoreCanonicalTo: true,
   discoveryPatterns: ['https://automock.dev/**'],
-  indexName: 'netlify_0c5dc3ad-ccde-42df-ba8b-d5ffbb292494_master_all',
+  indexName: 'automock',
   searchPagePath: 'search',
   actions: [
     {
-      indexName: 'netlify_0c5dc3ad-ccde-42df-ba8b-d5ffbb292494_master_all',
+      indexName: 'automock',
       pathsToMatch: ['https://automock.dev/**'],
       recordExtractor: ({ $, helpers }) => {
         // priority order: deepest active sub list header -> navbar active item -> 'Documentation'
@@ -44,7 +44,7 @@ module.exports = {
     },
   ],
   initialIndexSettings: {
-    'netlify_0c5dc3ad-ccde-42df-ba8b-d5ffbb292494_master_all': {
+    automock: {
       attributesForFaceting: [
         'type',
         'lang',
