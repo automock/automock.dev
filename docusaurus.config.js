@@ -30,6 +30,7 @@ const config = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
+        blog: false,
         gtag: {
           trackingID: 'G-K2J8XLLS52',
           anonymizeIP: true,
@@ -45,21 +46,6 @@ const config = {
         path: 'api-reference',
         routeBasePath: 'api-reference',
         sidebarPath: require.resolve('./api-sidebars.js'),
-      },
-    ],
-    [
-      '@docusaurus/plugin-client-redirects',
-      {
-        redirects: [
-          {
-            to: '/docs',
-            from: '/docs/getting-started',
-          },
-          {
-            to: '/api-reference',
-            from: '/api-reference/category/api-reference'
-          },
-        ],
       },
     ],
   ],
