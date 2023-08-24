@@ -26,6 +26,9 @@ const config = {
           path: 'docs',
           routeBasePath: 'docs',
           sidebarPath: require.resolve('./docs-sidebars.js'),
+          remarkPlugins: [
+            [require('@docusaurus/remark-plugin-npm2yarn'), { sync: true }],
+          ],
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -46,6 +49,9 @@ const config = {
         path: 'api-reference',
         routeBasePath: 'api-reference',
         sidebarPath: require.resolve('./api-sidebars.js'),
+        remarkPlugins: [
+          [require('@docusaurus/remark-plugin-npm2yarn'), {sync: true}],
+        ],
       },
     ],
   ],

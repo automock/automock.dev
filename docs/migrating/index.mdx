@@ -1,0 +1,43 @@
+---
+sidebar_position: 1
+title: Migration Guide (2.0)
+---
+
+# Migrating from v1.x to v2.0
+
+Upgrading to Automock v2.0 brings a host of improvements designed to enhance your testing experience. This guide
+outlines the key changes and steps for a smooth migration.
+
+## What's New in v2.0
+
+- **Enhanced Developer Experience**:
+    - Improved error handling with more specific and informative error types for easier debugging.
+    - Enhanced JSDoc documentation for better API understanding.
+
+- **Robustness and Flexibility**:
+    - Internal changes in `@automock/adapters.nestjs`, `@automock/core`, `@automock/common`, and `@automock/types` to
+      make the library more robust and flexible.
+
+- **Transparency**:
+    - All these internal changes are abstracted away by the `@automock/jest` and `@automock/sinon` packages, ensuring a
+      seamless transition for end-users.
+
+> :bulb: For a detailed list of changes, it's highly recommended
+> reading [Automock's 2.0 Release Notes](https://github.com/automock/automock/releases/tag/v2.0.0).
+
+## Key Migration Steps
+
+### Manual Installation of NestJS Adapter
+
+In v1.x, the NestJS adapter came bundled by default. In v2.0, you'll need to install it manually:
+
+```bash npm2yarn
+npm install @automock/adapters.nestjs --save-dev
+```
+
+## Wrapping Up
+
+The migration from v1.x to v2.0 is designed to make Automock more robust, flexible, and user-friendly. If you encounter
+any issues or have questions, feel free to consult the updated documentation or seek community support.
+
+Thank you for using Automock, and we hope you enjoy the new features and improvements in v2.0!
