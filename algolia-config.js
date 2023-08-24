@@ -7,12 +7,12 @@ module.exports = {
   sitemaps: ['https://automock.dev/sitemap.xml'],
   ignoreCanonicalTo: true,
   discoveryPatterns: ['https://automock.dev/**'],
-  indexName: 'automock',
+  indexName: 'netlify_0c5dc3ad-ccde-42df-ba8b-d5ffbb292494_master_all',
   searchPagePath: 'search',
   actions: [
     {
-      indexName: 'automock',
-      pathsToMatch: ['https://YOUR_WEBSITE_URL/**'],
+      indexName: 'netlify_0c5dc3ad-ccde-42df-ba8b-d5ffbb292494_master_all',
+      pathsToMatch: ['https://automock.dev/**'],
       recordExtractor: ({ $, helpers }) => {
         // priority order: deepest active sub list header -> navbar active item -> 'Documentation'
         const lvl0 =
@@ -44,7 +44,7 @@ module.exports = {
     },
   ],
   initialIndexSettings: {
-    automock: {
+    'netlify_0c5dc3ad-ccde-42df-ba8b-d5ffbb292494_master_all': {
       attributesForFaceting: [
         'type',
         'lang',
