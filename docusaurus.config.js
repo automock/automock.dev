@@ -47,15 +47,14 @@ const config = {
       },
     ],
   ],
-  // themes: ['@docusaurus/theme-search-algolia'],
   themeConfig: {
     colorMode: {
       defaultMode: 'dark',
     },
     algolia: {
-      appId: 'MOU68PFI18',
-      apiKey: '80847d6aae78a141a4726d0f08a8d84f',
-      indexName: 'Automock',
+      appId: '75V27ZS1SQ',
+      apiKey: 'b729950817be322fa67e6f1dd2267dd0',
+      indexName: 'automock',
       contextualSearch: true,
       externalUrlRegex: 'automock\\.dev|localhost:3000',
       searchPagePath: 'search',
