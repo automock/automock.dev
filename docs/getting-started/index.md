@@ -4,10 +4,25 @@ sidebar_position: 1
 
 # Introduction
 
-**Specially designed for Inversion of Control (IoC) and Dependency Injection (DI) scenarios, Automock seamlessly
-integrates automatic mocking into various DI and testing frameworks. Automock's adaptability ensures a seamless and
+**Specially designed for Inversion of Control and Dependency Injection scenarios, Automock seamlessly integrates 
+automatic mocking into various DI and testing frameworks. Automock's adaptability ensures a seamless and
 effective testing experience, empowers you to isolate and test individual components with ease, enhancing the efficiency
 and reliability of your unit testing journey.**
+
+* 🚀 **Zero-Setup Mocking** - Dive straight into testing without the hassle. Automatically generate mock
+   objects, eliminate manual setup and reduce boilerplate code.
+
+* 🔍 **Type-Safe Mocks** - Leverage TypeScript's power with mocks that retain the same type information as real objects.
+   Write tests with confidence, knowing that type mismatches will be caught.
+
+* 🔄 **Consistent Test Architecture** - Achieve a uniform approach to unit testing.
+  Your tests will follow a consistent syntax and structure, making them easier to read and maintain.
+
+* 📈 **Optimized Performance** - Lightning-fast execution for all your unit tests. Automock's lightweight design
+  ensures that your tests run smoothly and efficiently.
+
+* 🌐 **Community & Support** - Join a growing community of developers. Benefit from regular updates, comprehensive
+   documentation, and responsive support to ensure you get the most out of Automock.
 
 ## Automock and The Essence of Unit Testing
 
@@ -19,11 +34,6 @@ Automock is designed to streamline unit testing by automating the generation of 
 With its seamless integration capabilities with renowned testing frameworks and dependency injection (DI) containers,
 crafting reliable unit tests becomes a breeze, eliminating the intricacies of manual mock configurations. **With
 Automock, you can:**
-
-- Instantly produce mock objects tailored for class dependencies.
-- Channel your efforts into crafting impactful test scenarios rather than getting bogged down with mock configurations.
-- Maintain a uniform syntax and structure throughout your unit tests.
-- Utilize type-accurate mocks that mirror the type attributes of genuine objects, bolstering code sustainability.
 
 ## The Challenge of Traditional Dependency Injection
 
@@ -41,24 +51,17 @@ with stubs or mocks to isolate the unit of work. This traditional approach has i
 * **Performance:** Interacting with the real DI container can introduce unnecessary overhead in tests, especially when
   the container performs additional tasks like lifecycle management or module initialization.
 
-## The Automock Advantage
-
-Automock introduces a paradigm shift. Instead of relying on the actual DI container, Automock creates a virtual
-environment where dependencies are automatically mocked. This approach offers several advantages:
-
-* **Simplicity:** There's no need to manually set up the DI container or replace dependencies with stubs. Automock
-  handles this automatically, making test setups straightforward and concise.
-
-* **Isolation:** Since Automock doesn't communicate with the real DI container, tests are truly isolated. This ensures
-  that external factors or changes in the DI container's behavior don't inadvertently affect your tests.
-
-* **Performance:** Without the overhead of the actual DI container, tests run faster and more efficiently.
+**Automock introduces a paradigm shift. Instead of relying on the actual DI container, Automock creates a virtual
+environment where dependencies are automatically mocked.**
 
 ## Embracing a Spectrum of Testing and DI Frameworks
 
-| **DI Framework Adapter**                               | **Jest (`@automock/jest`)** | **Sinon (`@automock/sinon`)** |
-|--------------------------------------------------------|-----------------------------|-------------------------------|
-| **NestJS Adapter (`@automock/adapters.nestjs`)**       | :white_check_mark:          | :white_check_mark:            |
-| **Inversify Adapter (`@automock/adapters.inversify`)** | :white_check_mark: (Beta)   | :white_check_mark: (Beta)     |
-| **Ts.ED Adapter (`@automock/adapters.tsed`)**          | Soon                        | Soon                          |
-| **TypeDI Adapter (`@automock/adapters.typedi`)**       | Soon                        | Soon                          |
+| **DI Framework Adapter**                               | **Jest (`@automock/jest`)**   | **Sinon (`@automock/sinon`)** |
+|--------------------------------------------------------|-------------------------------|-------------------------------|
+| **NestJS Adapter (`@automock/adapters.nestjs`)**       | :white_check_mark:            | :white_check_mark:            |
+| **Inversify Adapter (`@automock/adapters.inversify`)** | :white_check_mark: (Beta)     | :white_check_mark: (Beta)     |
+
+> :bulb: Automock is a community-driven project, and we're always looking to expand our horizons and provide
+> support for a wider range of Dependency Injection frameworks.
+> If you're interested in contributing to Automock's
+> adapters, see the [contributing](https://automock.dev/docs/adapters/intro#seeking-contributors-for-di-framework-integrations) section for more details.

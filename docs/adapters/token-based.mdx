@@ -1,0 +1,47 @@
+---
+sidebar_position: 4
+title: Token-Based Injection
+---
+
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+
+# Token-Based Injection
+
+Consider the following `Logger` interface:
+
+```typescript
+export interface Logger {
+  log(message: string): void;
+}
+```
+
+## Symbol / String Tokens
+Usually, when injecting something which is not an instance of a class directly, DI containers use tokens. Tokens are usually strings or symbols.
+Say we want to inject a logger instance into our `UserService`, we can do it by using a string or a symbol token.
+
+<Tabs groupId="automock-adapter" className="adapters-tabs" queryString="automock-adapter">
+  <TabItem attributes={{className: 'nestjs'}} value="nestjs" label="NestJS" default>
+    <CodeBlock language="typescript">
+      {`@Injectable()
+class UserService {
+  constructor(@Inject('LOGGER') private logger: Logger) {}
+}`}
+    </CodeBlock>
+  </TabItem>
+  <TabItem attributes={{className: 'inversifyjs'}} value="inverisfyjs" label="InversifyJS">
+    <CodeBlock language="typescript">
+      {`@injectable()
+class UserService {
+  constructor(@inject('LOGGER') private logger: Logger) {}
+}`}
+    </CodeBlock>
+  </TabItem>
+</Tabs>
+
+
+## Class Tokens
+Usually, when injecting something which is not an instance of a class directly, DI containers use tokens. Tokens are usually strings or symbols.
+Say we want to inject a logger instance into our `UserService`, we can do it by using a string or a symbol token.
