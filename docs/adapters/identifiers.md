@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-title: Concept of Identifiers
+title: DI Identifiers
 ---
 
 ## The Concept of Identifiers
@@ -32,11 +32,11 @@ class UserService {
 }
 ```
 
-**Usage Example**
+**To resolve or mock a class-based dependency, just use the class itself.**
 
 ```tsx title="UnitReference API"
 const { unitRef } = TestBed.create(UserService).compile();
-const myClassInstance = unitRef.get(MyClass);
+const userApiService = unitRef.get(UserApiService);
 ```
 
 ```tsx title="MockOverride API"

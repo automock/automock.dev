@@ -1,0 +1,51 @@
+---
+sidebar_position: 3
+title: Class-Based Injection
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+
+## Class-Based Injection
+
+Class-based injection is a fundamental concept in Dependency Injection frameworks. It revolves around the idea of
+using actual TypeScript classes both as a blueprint for creating instances and as an identifier for fetching
+specific dependencies. This approach is consistent across various DI frameworks, making it a foundational
+technique for developers to understand and utilize.
+
+While the overarching concept remains consistent, the syntax and nuances might differ slightly between DI frameworks.
+Below, we've provided examples for different frameworks to showcase how class-based injection is implemented in each.
+
+Consider the following `ApiService` class:
+
+```typescript
+class ApiService {
+  public get(url: string) { ... }
+}
+```
+
+<Tabs groupId="automock-adapter" className="adapters-tabs" queryString="automock-adapter">
+  <TabItem attributes={{className: 'nestjs'}} value="nestjs" label="NestJS" default>
+    <CodeBlock language="typescript">
+      {`@Injectable()
+class UserService {
+  constructor(private apiService: ApiService) {}
+}`}
+    </CodeBlock>
+  </TabItem>
+  <TabItem attributes={{className: 'inversifyjs'}} value="inverisfyjs" label="InversifyJS">
+    <CodeBlock language="typescript">
+      {`@injectable()
+class UserService {
+  constructor(private apiService: ApiService) {}
+}`}
+    </CodeBlock>
+  </TabItem>
+</Tabs>
+
+### Identifying Class-Based Dependencies
+
+To resolve or mock a dependency, the identifiers used is the class itself. This is consistent across all DI frameworks.
+Please refer to the [Class-based Identifiers](/docs/adapters/identifiers#class-based-identifiers) section for more
+information.

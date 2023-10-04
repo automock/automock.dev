@@ -5,7 +5,7 @@ title: Philosophy
 
 ### Revolutionizing Unit Testing
 
-Specially designed for Inversion of Control (IoC) and Dependency Injection (DI) scenarios, Automock seamlessly merges
+Specially designed for Inversion of Control (IoC) and Dependency Injection  scenarios, Automock seamlessly merges
 automated mocking into diverse DI and testing frameworks. This ensures a smooth and impactful testing experience,
 empowering you to dissect and evaluate individual components with confidence, augmenting the efficiency and reliability
 of your unit testing journey.

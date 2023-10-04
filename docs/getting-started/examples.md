@@ -9,7 +9,7 @@ description: 'A collection of examples showcasing the functionality and versatil
 This page contains a series of examples that demonstrate how to use Automock effectively. Each example is explained step
 by step, providing insights into the thought process and the decisions made.
 
-Please note that these examples are agnostic to the Dependency Injection (DI) framework and the specific Automock
+Please note that these examples are agnostic to the Dependency Injection  framework and the specific Automock
 adapter you're using. The injection mechanism might differ based on the DI framework. For more details on the different
 adapters available and their specific functionalities, refer to the [Adapters page](/docs/adapters).
 

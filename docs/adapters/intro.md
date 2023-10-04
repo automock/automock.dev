@@ -7,7 +7,7 @@ sidebar_position: 1
 ## Adapters: Bridging Frameworks and Dependency Injection
 
 Automock's core strength lies in its consistent logic and approach to automating mock object creation. However, the
-diverse landscape of Dependency Injection (DI) frameworks, each with its unique intricacies, presents a challenge. To
+diverse landscape of Dependency Injection  frameworks, each with its unique intricacies, presents a challenge. To
 address this, Automock introduces the concept of "Adapters."
 
 Automock Adapters are tailored connectors designed specifically for different DI frameworks. They ensure seamless
@@ -68,16 +68,5 @@ testing to help us integrate more frameworks into Automock.
 * **Ts.ED**: A Node.js and TypeScript framework on top of Express/Koa.js. If you have experience with Ts.ED and are
    interested in contributing to Automock, see the [issue here](https://github.com/automock/automock/issues/105).
 
-### How to Contribute:
-
-- **Comment**: If you're interested in working on an issue, leave a comment to let us know. This helps in coordinating
-  efforts and avoiding duplicate work.
-
-- **Collaborate**: Engage with the Automock community, ask questions, seek clarifications, and share your progress.
-
-- **Submit a PR**: Once you've implemented the integration, submit a Pull Request to our repository. Our team will
-  review it, provide feedback, and once everything looks good, merge it!
-
-By contributing to Automock's DI framework integrations, you'll be helping countless developers simplify their unit
-testing process. We appreciate all contributions, big or small, and we're excited to see Automock grow with the help of
-the community!
+We appreciate all contributions, big or small, and we're excited to see Automock grow with the help of the community 
+:heart:

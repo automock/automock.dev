@@ -1,33 +1,40 @@
 ---
-sidebar_position: 4
+sidebar_position: 3
 title: Token-Based Injection
 ---
-
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 
-# Token-Based Injection
+## Token-Based Injection
 
-Consider the following `Logger` interface:
+Token-based injection is another essential concept in Dependency Injection frameworks. Instead of using classes as
+identifiers, tokens (which can be strings, symbols, or actual classes) are used to represent and fetch specific
+dependencies.
+
+Just like class-based injection, the core idea of token-based injection remains consistent across different DI
+frameworks, but the syntax and nuances differ. Below, we've provided examples for different frameworks to showcase
+how token-based injection is implemented in each.
+
+### Class Token
+
+In some DI frameworks, it's possible to use the actual class as a token for injection.
+
+Consider the following `ActualClass`:
 
 ```typescript
-export interface Logger {
-  log(message: string): void;
+class ActualClass {
+  public doSomething() { ... }
 }
 ```
-
-## Symbol / String Tokens
-Usually, when injecting something which is not an instance of a class directly, DI containers use tokens. Tokens are usually strings or symbols.
-Say we want to inject a logger instance into our `UserService`, we can do it by using a string or a symbol token.
 
 <Tabs groupId="automock-adapter" className="adapters-tabs" queryString="automock-adapter">
   <TabItem attributes={{className: 'nestjs'}} value="nestjs" label="NestJS" default>
     <CodeBlock language="typescript">
       {`@Injectable()
 class UserService {
-  constructor(@Inject('LOGGER') private logger: Logger) {}
+  constructor(@Inject(ActualClass) private someService: ActualClass) {}
 }`}
     </CodeBlock>
   </TabItem>
@@ -35,13 +42,70 @@ class UserService {
     <CodeBlock language="typescript">
       {`@injectable()
 class UserService {
-  constructor(@inject('LOGGER') private logger: Logger) {}
+  constructor(@inject(ActualClass) private someService: ActualClass) {}
 }`}
     </CodeBlock>
   </TabItem>
 </Tabs>
 
+### String Token
 
-## Class Tokens
-Usually, when injecting something which is not an instance of a class directly, DI containers use tokens. Tokens are usually strings or symbols.
-Say we want to inject a logger instance into our `UserService`, we can do it by using a string or a symbol token.
+Consider the following token:
+
+```typescript
+const STRING_TOKEN = 'STRING_TOKEN';
+```
+
+<Tabs groupId="automock-adapter" className="adapters-tabs" queryString="automock-adapter">
+  <TabItem attributes={{className: 'nestjs'}} value="nestjs" label="NestJS" default>
+    <CodeBlock language="typescript">
+      {`@Injectable()
+class UserService {
+  constructor(@Inject(STRING_TOKEN) private service: AnyService) {}
+}`}
+    </CodeBlock>
+  </TabItem>
+  <TabItem attributes={{className: 'inversifyjs'}} value="inverisfyjs" label="InversifyJS">
+    <CodeBlock language="typescript">
+      {`@injectable()
+class UserService {
+  constructor(@inject(STRING_TOKEN) private service: AnyService) {}
+}`}
+    </CodeBlock>
+  </TabItem>
+</Tabs>
+
+### Symbol Token
+
+Consider the following token:
+
+```typescript
+const SYMBOL_TOKEN = Symbol('SYMBOL_TOKEN');
+```
+
+<Tabs groupId="automock-adapter" className="adapters-tabs" queryString="automock-adapter">
+  <TabItem attributes={{className: 'nestjs'}} value="nestjs" label="NestJS" default>
+    <CodeBlock language="typescript">
+      {`@Injectable()
+class UserService {
+  constructor(@Inject(SYMBOL_TOKEN) private service: AnyService) {}
+}`}
+    </CodeBlock>
+  </TabItem>
+  <TabItem attributes={{className: 'inversifyjs'}} value="inverisfyjs" label="InversifyJS">
+    <CodeBlock language="typescript">
+      {`@injectable()
+class UserService {
+  constructor(@inject(SYMBOL_TOKEN) private service: AnyService) {}
+}`}
+    </CodeBlock>
+  </TabItem>
+</Tabs>
+
+## Identifying Token-Based Dependencies
+
+To resolve or mock a dependency using tokens, the identifier is the token itself (either a string or a symbol). This
+approach is consistent across all DI frameworks. Please refer to
+the [Token-based Identifiers](/docs/adapters/identifiers#token-based-identifiers) section for more information.
+
+> :bulb: **Note:** For handling circular dependencies using tokens, please refer to the [Circular Dependencies](/docs/adapters/circular-dependencies) page.

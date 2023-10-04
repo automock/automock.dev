@@ -1,11 +1,23 @@
 .features {
-  display: flex;
-  align-items: center;
-  padding: 2rem 0;
+  margin-top: 0;
+  padding: 1rem 1rem 0;
   width: 100%;
 }
 
-.featureSvg {
-  height: 200px;
-  width: 200px;
+.feature {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.feature:nth-child(1) {
+  margin-top: 0;
+}
+
+.feature h3 {
+  letter-spacing: 0.25px;
+  display: inline;
+}
+
+.feature p {
+  display: inline;
 }
