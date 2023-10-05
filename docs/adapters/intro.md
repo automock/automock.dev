@@ -60,8 +60,7 @@ enhancing the developer experience across different ecosystems.
 We believe in the power of community collaboration, and we're seeking contributors who are passionate about DI and
 testing to help us integrate more frameworks into Automock.
 
-### Current Integration Opportunities:
-
+:::info
 * **TSyringe**: A lightweight DI container for TypeScript developed by Microsoft. We're actively seeking contributors
    for this integration. Find more details in [this issue here](https://github.com/automock/automock/issues/104).
 
@@ -70,3 +69,4 @@ testing to help us integrate more frameworks into Automock.
 
 We appreciate all contributions, big or small, and we're excited to see Automock grow with the help of the community 
 :heart:
+:::

@@ -10,20 +10,23 @@ outlines the key changes and steps for a smooth migration.
 
 ## What's New in v2.0
 
-- **Enhanced Developer Experience**:
+- **Enhanced Developer Experience**
     - Improved error handling with more specific and informative error types for easier debugging.
     - Enhanced JSDoc documentation for better API understanding.
 
-- **Robustness and Flexibility**:
+- **Robustness and Flexibility**
     - Internal changes in `@automock/adapters.nestjs`, `@automock/core`, `@automock/common`, and `@automock/types` to
       make the library more robust and flexible.
 
-- **Transparency**:
-    - All these internal changes are abstracted away by the `@automock/jest` and `@automock/sinon` packages, ensuring a
-      seamless transition for end-users.
+- **Native Test Doubles Support**
+    - One of the notable updates is the transition to using native test doubles instead of the `jest-mock-extended`
+      library. By leveraging native test doubles, Automock now provides better compatibility across different testing
+      frameworks, making it easier to integrate and utilize its capabilities within your preferred testing ecosystem.
 
-> :bulb: For a detailed list of changes, it's highly recommended
-> reading [Automock's 2.0 Release Notes](https://github.com/automock/automock/releases/tag/v2.0.0).
+:::tip
+For a detailed list of changes, it's recommended
+reading [Automock's 2.0 Release Notes](https://github.com/automock/automock/releases/tag/v2.0.0).
+:::
 
 ## Key Migration Steps
 

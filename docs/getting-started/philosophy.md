@@ -7,8 +7,8 @@ title: Philosophy
 
 Specially designed for Inversion of Control (IoC) and Dependency Injection  scenarios, Automock seamlessly merges
 automated mocking into diverse DI and testing frameworks. This ensures a smooth and impactful testing experience,
-empowering you to dissect and evaluate individual components with confidence, augmenting the efficiency and reliability
-of your unit testing journey.
+empowering you to test individual components with confidence, augmenting the efficiency and reliability of your unit 
+testing journey.
 
 ### Our Beliefs: Shaping the Philosophy of Automock
 
@@ -31,8 +31,9 @@ you can set the stage for a standardized method of crafting tests.
 
 ### Solitary Unit Tests
 
-Automock draws inspiration from Martin Fowler's writings on various types of unit tests, particularly "Solitary Unit
-Tests." These tests, which focus on isolating a single component for testing, align perfectly with Automock's
-philosophy. By enabling you to effortlessly mock out dependencies, Automock facilitates the creation of Solitary Unit
-Tests that provide true isolation for your code components. This approach empowers you to thoroughly test individual
-units in isolation, adhering to best practices while following Fowler's guidance.
+Automock draws inspiration from
+[Martin Fowler's writings on various types of unit tests](https://martinfowler.com/bliki/UnitTest.html),
+particularly "Solitary Unit Tests." These tests, which focus on isolating a single component for testing, align 
+perfectly with Automock's philosophy. By enabling you to effortlessly mock out dependencies, Automock facilitates the
+creation of Solitary Unit Tests that provide true isolation for your code components. This approach empowers you to
+thoroughly test individual units in isolation, adhering to best practices.
