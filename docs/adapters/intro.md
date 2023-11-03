@@ -38,15 +38,15 @@ framework, Automock Adapters adeptly handle these details.
         </tr>
         <tr>
             <td><strong>TSyringe Adapter (<code>@automock/adapters.tsyringe</code>)</strong></td>
-            <td colspan="2" align="center">Contributions are Welcomed 🙏</td>
+            <td colspan="2" align="center">Contributions are Welcome 🙏</td>
         </tr>
         <tr>
             <td><strong>Ts.ED Adapter (<code>@automock/adapters.tsed</code>)</strong></td>
-            <td align="center" colspan="2">Contributions are Welcomed 🙏</td>
+            <td align="center" colspan="2">Contributions are Welcome 🙏</td>
         </tr>
         <tr>
             <td><strong>TypeDI Adapter (<code>@automock/adapters.typedi</code>)</strong></td>
-            <td align="center" colspan="2">Contributions are Welcomed 🙏</td>
+            <td align="center" colspan="2">Contributions are Welcome 🙏</td>
         </tr>
     </tbody>
 </table>

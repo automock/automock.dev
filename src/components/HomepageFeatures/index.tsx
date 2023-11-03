@@ -26,11 +26,11 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: '⚡ Optimized Performance',
+    title: '⚡ Quick Test Execution',
     description: (
       <>
-        <strong>Lightning-fast execution for all your unit tests.</strong> Automock's lightweight design ensures that
-        your tests run smoothly and efficiently.
+        <strong>By bypassing the DI container load, Automock's design ensures your unit tests run significantly
+          faster.</strong> This lets you focus on development without unnecessary waits.
       </>
     ),
   },

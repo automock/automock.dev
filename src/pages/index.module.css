@@ -4,6 +4,7 @@
  */
 
 .heroBanner {
+  font-family: 'Open Sans', sans-serif;
   padding: 4rem 0;
   text-align: center;
   position: relative;
@@ -18,11 +19,9 @@
 }
 
 .buttons {
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: -.75px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.main-features {
-  background: red;
 }

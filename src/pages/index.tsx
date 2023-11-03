@@ -21,6 +21,14 @@ function HomepageHeader() {
             to="/docs">
             Read the Docs
           </Link>
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          <Link
+            className="button button--secondary button--lg"
+            to="https://github.com/automock/automock">
+            Source Code
+          </Link>
         </div>
       </div>
     </header>
@@ -32,7 +40,7 @@ export default function Home(): JSX.Element {
 
   return (
     <Layout
-      title={`${siteConfig.title}`}
+      title={siteConfig.title}
       description="Standalone Library for Automated Mocking of Class Dependencies.">
       <HomepageHeader />
     </Layout>

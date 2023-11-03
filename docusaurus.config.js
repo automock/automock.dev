@@ -1,12 +1,10 @@
-// @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
-
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const algoliaConfig = require('./algolia-config');
 
 const config = {
   title: 'Automock',
+  tagline: 'Standalone Library for Automated Mocking of Class Dependencies',
   url: 'https://automock.dev',
   baseUrl: '/',
   onBrokenLinks: 'ignore',
@@ -27,7 +25,7 @@ const config = {
           routeBasePath: 'docs',
           sidebarPath: require.resolve('./docs-sidebars.js'),
           remarkPlugins: [
-            [require('@docusaurus/remark-plugin-npm2yarn'), { sync: true }],
+            [require('@docusaurus/remark-plugin-npm2yarn'), {sync: true}],
           ],
         },
         theme: {
@@ -56,7 +54,12 @@ const config = {
     ],
   ],
   themeConfig: {
+    metadata: [
+      { name: 'keywords', content: 'auto mocking, dependency injection, inversion of control, jest, sinon, nestjs, inversifyjs' },
+      { name: 'description', content: 'Standalone Library for Automated Mocking of Class Dependencies.' },
+    ],
     colorMode: {
+      disableSwitch: true,
       defaultMode: 'dark',
     },
     algolia: algoliaConfig,
@@ -86,42 +89,7 @@ const config = {
     },
     footer: {
       style: 'dark',
-      links: [
-        {
-          title: 'Quick Navigation',
-          items: [
-            {
-              label: 'Getting Started',
-              to: '/docs/getting-started/',
-            },
-            {
-              label: 'Installation',
-              to: '/docs/getting-started/installation',
-            },
-            {
-              label: 'Step-by-Step Example',
-              to: '/docs/getting-started/examples',
-            },
-          ],
-        },
-        {
-          title: 'API Reference',
-          items: [
-            {
-              label: 'TestBed',
-              to: '/api-reference/api/testbed-api',
-            },
-            {
-              label: 'TestBedBuilder',
-              to: '/api-reference/api/testbedbuilder-api',
-            },
-            {
-              label: 'UnitReference',
-              to: '/api-reference/api/unitreference-api',
-            },
-          ],
-        },
-      ],
+      copyright: `Released under the MIT License <br /> Copyright © 2020-2023 <strong>Omer Morad</strong> <br /> Hosted by Netlify`,
     },
     prism: {
       theme: lightCodeTheme,

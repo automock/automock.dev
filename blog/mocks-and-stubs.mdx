@@ -1,0 +1,38 @@
+---
+sidebar_position: 1
+title: Mocks and Stubs
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+
+# Mocks and Stubs: The Fundamentals of Automock
+
+In the realm of unit testing, the terms "mock" and "stub" are frequently used, often interchangeably. However, they
+serve distinct purposes and understanding their nuances is crucial for effective testing. This guide delves into the
+definitions and usage of mocks and stubs, with examples from both Jest and Sinon.
+
+As Automock relies on Martin Fowler's Solitary Unit Tests, we also draw inspiration from his articles, like
+"Mocks Aren't Stubs". In this article, Fowler distinguishes between the terms "mock" and "stub," clarifying their roles
+in unit testing.
+
+## What is a Stub?
+
+A stub is a function/property that controls a method's behavior in a test. It replaces the targeted function's behavior
+with custom behavior for testing purposes. Let's see an example both for Jest and for Sinon.
+
+```typescript
+const stub = jest.fn();
+
+
+```
+
+
+## What is a Mock?
+
+A mock is an object that simulates the behavior of a real object in controlled ways. It's essentially a set of method
+stubs with pre-programmed behavior, as well as pre-programmed expectations. Mocks are used in unit tests to mimic real
+objects, providing the expected behavior without invoking the actual underlying code.
+
+In the context of Automock, a mock is a collection of stubs.

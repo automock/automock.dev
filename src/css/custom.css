@@ -5,27 +5,33 @@
  */
 
 /* You can override the default Infima variables here. */
+
+@font-face {
+  font-family: "Open Sans";
+  src: url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&family=Roboto:wght@400;500;700&family=Urbanist:wght@500&display=swap') format('woff');
+}
+
 :root {
-  --ifm-color-primary: #41b0cb;
-  --ifm-color-primary-dark: #008ca6;
-  --ifm-color-primary-darker: #006a83;
-  --ifm-color-primary-darkest: #004a62;
-  --ifm-color-primary-light: #41b0cb;
-  --ifm-color-primary-lighter: #008ca6;
-  --ifm-color-primary-lightest: #004a62;
-  --ifm-code-font-size: 95%;
+  --ifm-color-primary: #0c87a6;
+  --ifm-color-primary-dark: #0b7a95;
+  --ifm-color-primary-darker: #0a738d;
+  --ifm-color-primary-darkest: #085f74;
+  --ifm-color-primary-light: #0d95b7;
+  --ifm-color-primary-lighter: #0e9bbf;
+  --ifm-color-primary-lightest: #10b0d8;
+  --ifm-background-color: #fcfcfc;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
   --ifm-color-primary: #41b0cb;
-  --ifm-color-primary-dark: #008ca6;
-  --ifm-color-primary-darker: #006a83;
-  --ifm-color-primary-darkest: #004a62;
-  --ifm-color-primary-light: #41b0cb;
-  --ifm-color-primary-lighter: #008ca6;
-  --ifm-color-primary-lightest: #004a62;
+  --ifm-color-primary-dark: #34a2bd;
+  --ifm-color-primary-darker: #3199b3;
+  --ifm-color-primary-darkest: #287e93;
+  --ifm-color-primary-light: #56b9d1;
+  --ifm-color-primary-lighter: #61bdd4;
+  --ifm-color-primary-lightest: #80cadc;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
@@ -59,4 +65,10 @@ html[data-theme='dark'] .header-github-link:before {
 
 .main-features {
   background: red;
+}
+
+.footer {
+  font-family: 'Open Sans', sans-serif;
+  font-size: .8rem;
+  letter-spacing: .5px;
 }

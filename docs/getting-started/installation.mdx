@@ -27,11 +27,6 @@ npm i -D @automock/sinon
 
 **And for your DI framework, choose the appropriate Automock adapter:**
 
-| **DI Framework Adapter**                               | **Jest (`@automock/jest`)** | **Sinon (`@automock/sinon`)** |
-|--------------------------------------------------------|-----------------------------|-------------------------------|
-| **NestJS Adapter (`@automock/adapters.nestjs`)**       | :white_check_mark:          | :white_check_mark:            |
-| **Inversify Adapter (`@automock/adapters.inversify`)** | :white_check_mark: (Beta)   | :white_check_mark: (Beta)     |
-
 <Tabs groupId="automock-adapter" className="adapters-tabs" queryString="automock-adapter">
   <TabItem attributes={{className: 'nestjs'}} value="nestjs" label="NestJS" default>
     <CodeBlock language="bash">
@@ -44,6 +39,11 @@ npm i -D @automock/sinon
     </CodeBlock>
   </TabItem>
 </Tabs>
+
+| **DI Framework Adapter**                               | **Jest (`@automock/jest`)** | **Sinon (`@automock/sinon`)** |
+|--------------------------------------------------------|-----------------------------|-------------------------------|
+| **NestJS Adapter (`@automock/adapters.nestjs`)**       | :white_check_mark:          | :white_check_mark:            |
+| **Inversify Adapter (`@automock/adapters.inversify`)** | :white_check_mark: (Beta)   | :white_check_mark: (Beta)     |
 
 
 ## Seamless Integration with Different DI Frameworks
