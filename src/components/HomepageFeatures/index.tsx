@@ -47,8 +47,8 @@ const FeatureList: FeatureItem[] = [
     title: '🌐 Community & Support',
     description: (
       <>
-        <strong>Achieve a uniform approach to unit testing.</strong>
-        &nbsp; Your tests will follow a consistent syntax and structure, making them easier to read and maintain.
+        <strong>Join a growing community of developers.</strong>
+        &nbsp;Regular updates, comprehensive documentation, and responsive support to ensure you get the most out of Automock.
       </>
     ),
   },

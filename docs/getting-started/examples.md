@@ -32,11 +32,11 @@ procedure, module, or object. In the context of Automock, we consider the unit t
 Here are the two classes:
 
 ```typescript
-class Database {
-  getUsers(): Promise<User[]> { ... }
+export class Database {
+  async getUsers(): Promise<User[]> { ... }
 }
 
-class UserService {
+export class UserService {
   constructor(private database: Database) {}
 
   async getAllUsers(): Promise<User[]> {

@@ -6,11 +6,6 @@
 
 /* You can override the default Infima variables here. */
 
-@font-face {
-  font-family: "Open Sans";
-  src: url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&family=Roboto:wght@400;500;700&family=Urbanist:wght@500&display=swap') format('woff');
-}
-
 :root {
   --ifm-color-primary: #0c87a6;
   --ifm-color-primary-dark: #0b7a95;

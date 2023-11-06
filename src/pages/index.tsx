@@ -10,14 +10,15 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <h1 className="hero__title">{siteConfig.title}</h1>
+        <img className={styles.logo} src="img/logo.svg" alt="Automock Logo" />
+
+        <h1 className={styles.title}>{siteConfig.title}</h1>
         <p className="hero__subtitle">
-          Automock simplifies the process of writing unit tests by automatically creating<br />
-          mock objects for class dependencies, allowing you to focus on writing test cases<br /> instead of mock setup.
+          Accelerate your unit testing workflow by leveraging auto-generated mock objects<br />for class dependencies, focusing your efforts on crafting test cases rather than mock setup
         </p>
         <div className={styles.buttons}>
           <Link
-            className="button button--secondary button--lg"
+            className={styles.button}
             to="/docs">
             Read the Docs
           </Link>
@@ -25,7 +26,7 @@ function HomepageHeader() {
           &nbsp;
           &nbsp;
           <Link
-            className="button button--secondary button--lg"
+            className={styles.button}
             to="https://github.com/automock/automock">
             Source Code
           </Link>
