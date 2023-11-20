@@ -17,15 +17,10 @@ adapters available and their specific functionalities, refer to the [Adapters pa
 In this example, we have a `UserService` class that depends on a `Database` class to fetch users. We'll mock
 the `Database` class to test the `UserService` class in isolation.
 
-<details>
-  <summary><strong>The definition of "Unit"</strong></summary>
-  <div>
-    <p>
-In software testing, a unit refers to the smallest testable part of an application. It can be a function, method,
-procedure, module, or object. In the context of Automock, we consider the unit to be a TypeScript class.
-    </p>
-  </div>
-</details>
+:::tip
+In software testing, a "unit" refers to the smallest testable part of an application. It can be a function, method,
+procedure, module, or object. **In the context of Automock, we consider the unit to be a TypeScript class.**
+:::
 
 ### Step 1: Define the Classes
 
@@ -51,7 +46,7 @@ export class UserService {
 
 **We'll use the `TestBed` from the `@automock/jest` package to create our test environment.**
 
-:::info
+:::tip
 A `TestBed` is an environment where testing is conducted. It contains the necessary setup to run the tests.
 In the context of unit testing, a `TestBed` provides an isolated environment to test individual units of code 
 without external dependencies.
@@ -92,16 +87,11 @@ describe('User Service Unit Test', () => {
 });
 ```
 
-<details>
-  <summary><strong>Why are we mocking the Database class?</strong></summary>
-  <div>
-    <p>
-The Database class is an external dependency. By mocking the Database class, we can simulate its behavior without
+:::tip
+The `Database` class is an external dependency. We mock the `Database` so we can simulate its behavior without
 actually interacting with a real database. This ensures that our tests are not affected by the state of the database and
 can run consistently in any environment.
-    </p>
-  </div>
-</details>
+:::
 
 ### Step 3: Extending the Example - Adding a Logger
 

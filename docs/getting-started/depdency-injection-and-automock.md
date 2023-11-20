@@ -21,20 +21,19 @@ introduce several challenges:
 
 ## Automock's Approach
 
-Automock redefines unit testing by introducing a virtual DI container that supersedes the native testing mechanisms of
-DI frameworks. This shift offers a suite of benefits:
+Automock improves upon the existing unit testing procedures of DI frameworks by creating a virtual DI container. There
+is an array of advantages to this change:
 
-* **Speed:** Automock's virtual DI container accelerates test execution by eliminating the need to load the actual DI
-  container.
+* **Speed:** By simulating the actual DI container in the testing environment, Automock speeds up execution times.
 
-* **Simplicity:** The complexity of test preparation is significantly reduced, freeing developers to concentrate on
-  crafting the test logic itself.
+* **Efficiency:** Developers are therefore able to focus on writing the test logic instead of grappling with the
+  complexities of test setup.
 
-* **Isolation:** Each test is conducted in isolation with automatic provision of mock implementations, ensuring a
-  focused and interference-free testing environment.
+* **Isolation:** Each test runs independently with mock implementations automatically provided, creating a
+  streamlined and interference-free testing environment.
 
 :::info
-**Important note!
-You no longer rely on your framework's native unit testing tools. Instead, Automock's virtual 
-environment takes precedence.**
+**A frequently asked question is, "Does Automock work with the built-in unit testing tools in my framework?" The answer is
+that you no longer rely on the native testing tools of your DI framework. Instead, Automock's virtual environment takes
+precedence.**
 :::
