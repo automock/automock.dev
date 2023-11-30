@@ -14,7 +14,7 @@ function HomepageHeader() {
 
         <h1 className={styles.title}>{siteConfig.title}</h1>
         <p className="hero__subtitle">
-          Accelerate your unit testing workflow by leveraging auto-generated mock objects<br />for class dependencies, focusing your efforts on crafting test cases rather than mock setup
+          Focus on creating solid test suites, automate the generation of<br />mock objects, and improve the unit testing workflow.
         </p>
         <div className={styles.buttons}>
           <Link

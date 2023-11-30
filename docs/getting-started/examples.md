@@ -1,6 +1,5 @@
 ---
-
-sidebar_position: 4
+sidebar_position: 3
 description: 'A collection of examples showcasing the functionality and versatility of Automock.'
 ---
 

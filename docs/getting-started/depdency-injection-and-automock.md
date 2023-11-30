@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 title: Dependency Injection & Automock
 ---
 
@@ -7,9 +7,10 @@ title: Dependency Injection & Automock
 
 ## The Challenge of Testing with Traditional DI
 
-Dependency Injection (DI) is a fundamental design pattern in modern software architecture, enhancing modularity and
-testability by adhering to inversion of control principles. However, traditional DI practices during unit testing can
-introduce several challenges:
+Dependency injection is a technique that improves the testability and modularity of classes by having an object or
+function receive other objects that it needs rather than creating them internally. The goal of dependency injection is
+to create loosely coupled programs by separating the concerns of creating and using objects. Traditional DI techniques,
+however, can present a number of difficulties when conducting unit testing:
 
 * **Complexity:** Mastery of a framework's DI container intricacies is often required, adding complexity to test setups.
 
