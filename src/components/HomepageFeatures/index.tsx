@@ -26,7 +26,7 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: '⚡ Quick Test Execution',
+    title: '⚡ Optimized Performance',
     description: (
       <>
         <strong>By bypassing the DI container load, Automock's design ensures your unit tests run significantly
@@ -35,11 +35,12 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: '🔄 Consistent Structure',
+    title: '📄 Consistent Tests Structure',
     description: (
       <>
         <strong>Achieve a uniform approach to unit testing.</strong>
-        &nbsp;Your tests will follow a consistent syntax and structure, making them easier to read and maintain.
+        &nbsp;Test suites will follow a consistent syntax and structure, making them easier to
+        read and maintain.
       </>
     ),
   },
