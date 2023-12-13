@@ -10,9 +10,6 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <a href="https://www.producthunt.com/posts/automock?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-automock" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=427897&theme=light" alt="Automock - Simpler&#0032;Unit&#0032;Tests&#0032;for&#0032;TypeScript | Product Hunt" style={{width: '250px', height: '54px'}} width="250" height="54" /></a>
-        <br /><br />
-
         <img className={styles.logo} src="img/logo.svg" alt="Automock Logo" />
 
         <h1 className={styles.title}>{siteConfig.title}</h1>
