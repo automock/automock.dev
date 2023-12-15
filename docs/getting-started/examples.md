@@ -5,11 +5,12 @@ description: 'A collection of examples showcasing the functionality and versatil
 
 # Step-by-Step Example
 
-**This page contains a step-by-step example that demonstrate how to use Automock effectively.**
+**This page contains a step-by-step example that demonstrates how to use Automock effectively.**
 
-Please note that this example is agnostic to the testing framework (we'll use Jest) and the specific Automock
-adapter you're using. The injection mechanism might differ based on the DI framework. For more details on the different
-adapters available and their specific functionalities, refer to the [Adapters page](/docs/adapters/intro)
+Please note that this example is agnostic to the testing framework (we'll use Jest) and any specific framework's
+adapter. The injection mechanism might differ based on the DI framework.
+For more details on the different adapters available and their specific functionalities, refer to the
+[adapters page](/docs/adapters/intro).
 
 ---
 
@@ -39,26 +40,11 @@ export class UserService {
 }
 ```
 
-**In the example above, we consider `UserService` to be the unit under test.**
+**Here, we consider the `UserService` to be the unit under test.**
 
 ### Step 2: Set Up the Test
 
-**We'll use the `TestBed` from the `@automock/jest` package to create our test environment.**
-
-:::tip
-A `TestBed` is an environment where testing is conducted. It contains the necessary setup to run the tests.
-In the context of unit testing, a `TestBed` provides an isolated environment to test individual units of code 
-without external dependencies.
-:::
-
-**In the test setup, we:**
-
-1. Create a test environment for `UserService`.
-2. Obtain the actual instance of `UserService` and a mocked instance of `Database` using `unit` and `unitRef.get
-   (Database)`, respectively.
-3. We mock the `getUsers` method of the `Database` class to return a predefined list of users.
-4. We then call the `getAllUsers` method of `UserService` and verify that it correctly interacts with the `Database`
-   class and returns the expected users.
+**We'll use the `TestBed` factory from `@automock/jest` package to create our test environment.**
 
 ```typescript
 import { TestBed } from '@automock/jest';
@@ -86,13 +72,21 @@ describe('User Service Unit Test', () => {
 });
 ```
 
-:::tip
-The `Database` class is an external dependency. We mock the `Database` so we can simulate its behavior without
-actually interacting with a real database. This ensures that our tests are not affected by the state of the database and
-can run consistently in any environment.
-:::
+**In this test setup, we:**
 
-### Step 3: Extending the Example - Adding a Logger
+1. Created a test environment for `UserService`.
+2. Obtained the actual instance of `UserService` and a mocked instance of `Database` using `unit` and `unitRef.get
+   (Database)`, respectively.
+3. We mocked the `getUsers` method of the `Database` class to return a predefined list of users.
+4. We then called the `getAllUsers` method of `UserService` and verified that it correctly interacts with the `Database`
+   class and returns the expected users.
+
+When invoking the `.compile()` method, all the `UserService` dependencies are replaced with mock objects.
+These mock objects are essentially a collection of stubs (`jest.fn()` in the case of Jest), they are placeholders for 
+the actual dependencies. **By default, these stubs return `undefined` values, meaning they do not have any predefined
+behavior.**
+
+### Step 3: Extending the Example—Adding a Logger
 
 **Let's extend our example by adding a `Logger` interface and integrating it into the `UserService` class.**
 
@@ -111,10 +105,9 @@ class UserService {
 }
 ```
 
-**Now, when you set up your test, you'll also need to mock the `Logger` interface:**
+**Now, when we set up our test, we'll also need to mock the `Logger` interface:**
 
 ```typescript
-
 beforeAll(() => {
   let logger: jest.Mocked<Logger>;
   const { unit, unitRef } = TestBed.create(UserService).compile();
@@ -139,9 +132,9 @@ test('should log a message and retrieve users from the database', async () => {
 ### Step 4: Using `.mock().using()` for Mock Implementation
 
 **Automock provides a more declarative way to specify mock implementations using the `.mock().using()` method chain.
-This allows you to define the mock behavior directly when setting up the test bed.**
+This allows us to define the mock behavior directly when setting up the `TestBed`.**
 
-Here's how you can modify the test setup to use this approach:
+Here's how we can modify the test setup to use this approach:
 
 ```typescript
 beforeAll(() => {
@@ -158,12 +151,14 @@ beforeAll(() => {
 ```
 
 In this approach, we've eliminated the need to manually mock the `getUsers` method in the test body. Instead, we've
-defined the mock behavior directly in the test setup using `.mock().using()`.
+defined the mock behavior directly in the test setup using `.mock().using()`. This functionality determines the final
+behavior of the `getUsers` method, and cannot be changed anymore in the test suite.
 
 ### Step 5: Adding Stubs to `.mock().using()`
 
-While the `.mock().using()` method provides a way to define the default behavior of the mocked method, you might still
-want to add specific stubs to further control or monitor the behavior during tests. Here's how you can achieve that:
+While the `.mock().using()` method provides a way to define the default, final behavior of the mocked method, we might
+still want to add specific stubs to further control or monitor the behavior during tests.
+Here's how we can achieve that:
 
 ```typescript
 beforeAll(() => {
