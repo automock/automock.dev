@@ -5,7 +5,7 @@ description: 'The `UnitTestBed` interface represents the result of compiling a `
 
 # UnitTestBed API
 
-:package: Source package: `@automock/core`
+:package: Source package: `@suites/core`
 
 The `UnitTestBed` API is a pivotal component of Automock, designed to facilitate the creation and management of the unit
 under test. When you're testing a particular unit a class) in isolation, it's crucial to ensure that its dependencies

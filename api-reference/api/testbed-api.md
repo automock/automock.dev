@@ -5,7 +5,7 @@ description: 'The `TestBed` API is a factory for creating `TestBedBuilder` insta
 
 # TestBed API
 
-:package: Source package: `@automock/jest`, `@automock/sinon`
+:package: Source package: `@suites/jest`, `@suites/sinon`
 
 The `TestBed` API is a factory for creating `TestBedBuilder` instances. It provides a single method for creating a
 `TestBedBuilder` instance.

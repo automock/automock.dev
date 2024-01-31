@@ -5,7 +5,7 @@ description: 'The `TestBedBuilder` interface provides methods for configuring an
 
 # TestBedBuilder API
 
-:package: Source package: `@automock/core`
+:package: Source package: `@suites/core`
 
 The `TestBedBuilder` interface provides methods for configuring and compiling the `TestBed`.
 

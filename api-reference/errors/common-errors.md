@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-description: Automock common error messages
+description: Suites common error messages
 ---
 
 # Common Errors

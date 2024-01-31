@@ -10,7 +10,7 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <img className={styles.logo} src="img/logo.svg" alt="Automock Logo" />
+        <img className={styles.logo} src="img/logo.svg" alt="Suites Logo" />
 
         <h1 className={styles.title}>{siteConfig.title}</h1>
         <p className="hero__subtitle">
@@ -27,7 +27,7 @@ function HomepageHeader() {
           &nbsp;
           <Link
             className={styles.button}
-            to="https://github.com/automock/automock">
+            to="https://github.com/suites-dev/suites">
             Source Code
           </Link>
         </div>

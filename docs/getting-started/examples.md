@@ -44,10 +44,10 @@ export class UserService {
 
 ### Step 2: Set Up the Test
 
-**We'll use the `TestBed` factory from `@automock/jest` package to create our test environment.**
+**We'll use the `TestBed` factory from `@suites/jest` package to create our test environment.**
 
 ```typescript
-import { TestBed } from '@automock/jest';
+import { TestBed } from '@suites/jest';
 
 describe('User Service Unit Test', () => {
   let userService: UserService;

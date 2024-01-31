@@ -29,7 +29,7 @@ dependencies, custom tokens `DATABASE_1` and `DATABASE_2` are employed during th
 
 ```typescript
 import { Injectable, Inject } from '@nestjs/core';
-import { TestBed } from '@automock/jest';
+import { TestBed } from '@suites/jest';
 
 class UserService {
   public constructor(

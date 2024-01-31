@@ -6,7 +6,7 @@ dependency.'
 
 # MockOverride API
 
-:package: Source package: `@automock/core`
+:package: Source package: `@suites/core`
 
 The `MockOverride` interface is designed to provide the ability to define specific overrides for mocking dependencies
 within a test environment. When working with the `TestBedBuilder` API, invoking the `.mock()` method will yield an
@@ -61,7 +61,7 @@ or primitive, ensuring a predictable behavior for the mocked dependency in your 
 Automock encapsulates these fixed or primitive values, allowing you to mock dependencies that are values rather than
 classes.
 
-The `ConstantValue` type is imported from `@automock/common`:
+The `ConstantValue` type is imported from `@suites/common`:
 
 ```typescript
 type ConstantValue = unknown[] | string | number | boolean | symbol | null;

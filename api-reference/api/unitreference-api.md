@@ -6,20 +6,20 @@ class under test.'
 
 # UnitReference API
 
-:package: Source package: `@automock/core`
+:package: Source package: `@suites/core`
 
 The `UnitReference` API is an interface that offers methods to access and interact with the mocked dependencies of the
 class under test.
 
 ### Understanding `StubbedInstance` and Return Types
 
-The `.get()` method returns a `StubbedInstance` object, which is a type defined by the `@automock/types` package.
+The `.get()` method returns a `StubbedInstance` object, which is a type defined by the `@suites/types` package.
 However, the actual implementation of `StubbedInstance` may differ depending on the package used, such
-as `@automock/jest` or `@automock/sinon`.
+as `@suites/jest` or `@suites/sinon`.
 
-When using `@automock/jest`, the `StubbedInstance` is equivalent
+When using `@suites/jest`, the `StubbedInstance` is equivalent
 to [`jest.Mocked`](https://jestjs.io/docs/mock-function-api/#jestmockedsource), which is a type provided by Jest for
-creating mocked instances of classes. On the other hand, when using `@automock/sinon`, the `StubbedInstance` is
+creating mocked instances of classes. On the other hand, when using `@suites/sinon`, the `StubbedInstance` is
 equivalent to `SinonStubbedInstance`, which is a type provided by Sinon.JS for creating stubbed instances of classes.
 
 The difference in return types is handled automatically by Automock based on the package being used, ensuring seamless
@@ -101,7 +101,7 @@ Automock encapsulates these fixed or primitive values, allowing you to mock depe
 classes.
 
 
-The `ConstantValue` type is imported from `@automock/common`:
+The `ConstantValue` type is imported from `@suites/common`:
 
 ```typescript
 type ConstantValue = unknown[] | string | number | boolean | symbol | null;

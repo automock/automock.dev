@@ -24,15 +24,15 @@ information.
 
 **Before diving in, ensure you've installed the appropriate adapter for your DI framework:**
 
-<Tabs groupId="automock-adapter" className="adapters-tabs" queryString="automock-adapter">
+<Tabs groupId="suites-adapter" className="adapters-tabs" queryString="suites-adapter">
   <TabItem attributes={{className: 'nestjs'}} value="nestjs" label="NestJS" default>
     <CodeBlock language="bash">
-      {`$ npm i -D @automock/adapters.nestjs`}
+      {`$ npm i -D @suites/adapters.nestjs`}
     </CodeBlock>
   </TabItem>
   <TabItem attributes={{className: 'inversifyjs'}} value="inverisfyjs" label="InversifyJS">
     <CodeBlock language="bash">
-      {`$ npm i -D @automock/adapters.inversify`}
+      {`$ npm i -D @suites/adapters.inversify`}
     </CodeBlock>
   </TabItem>
 </Tabs>
@@ -45,7 +45,7 @@ Class-based injection is a fundamental concept in Dependency Injection framework
 using actual TypeScript classes both as a blueprint for creating instances and as an identifier for fetching
 specific dependencies.
 
-<Tabs groupId="automock-adapter" className="adapters-tabs" queryString="automock-adapter">
+<Tabs groupId="suites-adapter" className="adapters-tabs" queryString="suites-adapter">
   <TabItem attributes={{className: 'nestjs'}} value="nestjs" label="NestJS" default>
     <CodeBlock language="typescript">
       {`import \{ Injectable, Inject \} from '@nestjs/common'\;\n
@@ -93,7 +93,7 @@ how token-based injection is implemented in each.
 
 Sometimes, classes double up as injection tokens. Here's how:
 
-<Tabs groupId="automock-adapter" className="adapters-tabs" queryString="automock-adapter">
+<Tabs groupId="suites-adapter" className="adapters-tabs" queryString="suites-adapter">
   <TabItem attributes={{className: 'nestjs'}} value="nestjs" label="NestJS" default>
     <CodeBlock language="typescript">
       {`import \{ Injectable, Inject \} from '@nestjs/common'\;\n
@@ -158,7 +158,7 @@ Also, consider the following constant as a token:
 You probably added this token to your dependency injection framework so that it might find a class or object that
 corresponds to this interface and inject its implementation.
 
-<Tabs groupId="automock-adapter" className="adapters-tabs" queryString="automock-adapter">
+<Tabs groupId="suites-adapter" className="adapters-tabs" queryString="suites-adapter">
   <TabItem attributes={{className: 'nestjs'}} value="nestjs" label="NestJS" default>
     <CodeBlock language="typescript">
       {`import \{ Injectable, Inject \} from '@nestjs/common'\;\n
@@ -198,7 +198,7 @@ const { unit, unitRef } = TestBed.create(UserService)
 Circular dependencies, where two classes interdependent on each other, can be tricky. While best avoided, certain
 scenarios necessitate them. DI frameworks often provide mechanisms like lazy loading to handle such cases.
 
-<Tabs groupId="automock-adapter" className="adapters-tabs" queryString="automock-adapter">
+<Tabs groupId="suites-adapter" className="adapters-tabs" queryString="suites-adapter">
   <TabItem attributes={{className: 'nestjs'}} value="nestjs" label="NestJS" default>
     <CodeBlock language="typescript">
       {`import \{ Injectable, Inject \} from '@nestjs/common'\;\n
@@ -222,3 +222,12 @@ class UserService {
 
 **Resolving or mocking a circular dependency is akin to handling a regular identifier, sans the circular dependency
 wrapper.**
+
+### Identifiers with Metadata
+
+Automock allows for metadata inclusion alongside the primary identifier. Metadata offers additional context or
+qualifiers for identifiers, granting more nuanced control over dependency retrieval. For instance, a service might have
+multiple instances, each distinguished by specific metadata.
+
+As of now, only the InversifyJS adapter supports metadata. You can refer to [InversifyJS](/docs/adapters/inversifyjs)
+page for further information.

@@ -3,15 +3,15 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const algoliaConfig = require('./algolia-config');
 
 const config = {
-  title: 'Automock',
+  title: 'Suites',
   tagline: 'Standalone Library for Automated Mocking of Class Dependencies',
-  url: 'https://automock.dev',
+  url: 'https://suites.dev',
   baseUrl: '/',
   onBrokenLinks: 'ignore',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.png',
   organizationName: 'Automock',
-  projectName: 'automock.dev',
+  projectName: 'suites.dev',
   headTags: [
     {
       tagName: 'link',
@@ -97,7 +97,7 @@ const config = {
           position: 'left',
         },
         {
-          href: 'https://github.com/automock/automock',
+          href: 'https://github.com/suites-dev/suites',
           position: 'right',
           className: 'header-github-link',
         },

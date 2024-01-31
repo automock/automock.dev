@@ -16,34 +16,34 @@ packages: the Automock package for your chosen testing framework and the corresp
 For **Jest**:
 
 ```bash npm2yarn
-$ npm i -D @automock/jest
+$ npm i -D @suites/jest
 ```
 
 For **Sinon**:
 
 ```bash npm2yarn
-$ npm i -D @automock/sinon
+$ npm i -D @suites/sinon
 ```
 
 **And for your DI framework, choose the appropriate Automock adapter:**
 
-<Tabs groupId="automock-adapter" className="adapters-tabs" queryString="automock-adapter">
+<Tabs groupId="suites-adapter" className="adapters-tabs" queryString="suites-adapter">
   <TabItem attributes={{className: 'nestjs'}} value="nestjs" label="NestJS" default>
     <CodeBlock language="bash">
-      {`$ npm i -D @automock/adapters.nestjs`}
+      {`$ npm i -D @suites/adapters.nestjs`}
     </CodeBlock>
   </TabItem>
   <TabItem attributes={{className: 'inversifyjs'}} value="inverisfyjs" label="InversifyJS">
     <CodeBlock language="bash">
-      {`$ npm i -D @automock/adapters.inversify`}
+      {`$ npm i -D @suites/adapters.inversify`}
     </CodeBlock>
   </TabItem>
 </Tabs>
 
-| **DI Framework Adapter**                               | **Jest (`@automock/jest`)** | **Sinon (`@automock/sinon`)** |
+| **DI Framework Adapter**                               | **Jest (`@suites/jest`)** | **Sinon (`@suites/sinon`)** |
 |--------------------------------------------------------|-----------------------------|-------------------------------|
-| **NestJS Adapter (`@automock/adapters.nestjs`)**       | :white_check_mark:          | :white_check_mark:            |
-| **Inversify Adapter (`@automock/adapters.inversify`)** | :white_check_mark: (Beta)   | :white_check_mark: (Beta)     |
+| **NestJS Adapter (`@suites/adapters.nestjs`)**       | :white_check_mark:          | :white_check_mark:            |
+| **Inversify Adapter (`@suites/adapters.inversify`)** | :white_check_mark: (Beta)   | :white_check_mark: (Beta)     |
 
 
 ## Seamless Integration with Different DI Frameworks

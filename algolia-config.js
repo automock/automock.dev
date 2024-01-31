@@ -3,16 +3,16 @@ module.exports = {
   apiKey: '3e97d584fb2fd1d9213ac18d61e83845',
   rateLimit: 8,
   maxDepth: 10,
-  startUrls: ['https://automock.dev/', 'https://automock.dev/api-reference', 'https://automock.dev/docs'],
-  sitemaps: ['https://automock.dev/sitemap.xml'],
+  startUrls: ['https://suites.dev/', 'https://suites.dev/api-reference', 'https://suites.dev/docs'],
+  sitemaps: ['https://suites.dev/sitemap.xml'],
   ignoreCanonicalTo: true,
-  discoveryPatterns: ['https://automock.dev/**'],
-  indexName: 'automock',
+  discoveryPatterns: ['https://suites.dev/**'],
+  indexName: 'suites',
   searchPagePath: 'search',
   actions: [
     {
-      indexName: 'automock',
-      pathsToMatch: ['https://automock.dev/**'],
+      indexName: 'suites',
+      pathsToMatch: ['https://suites.dev/**'],
       recordExtractor: ({ $, helpers }) => {
         // priority order: deepest active sub list header -> navbar active item -> 'Documentation'
         const lvl0 =
@@ -44,7 +44,7 @@ module.exports = {
     },
   ],
   initialIndexSettings: {
-    automock: {
+    suites: {
       attributesForFaceting: [
         'type',
         'lang',
