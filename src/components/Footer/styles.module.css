@@ -1,0 +1,32 @@
+
+
+/* Footer CSS */
+.pageFooter {
+  background-color: #f1f3f3;
+  text-align: center;
+  color: #090909;
+  padding: 60px 0;
+}
+
+.pageFooter .icon {
+  color: #c2c3c3;
+  font-size: 24px;
+  margin: 0 10px;
+}
+
+.pageFooter .icon:hover {
+  color: #090909;
+}
+
+.pageFooter p {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 26px;
+  color: #a5a5a5;
+}
+
+.pageFooter p a {
+  color: #ea2845;
+  font-weight: 600;
+}
+/* Footer section CSS */
