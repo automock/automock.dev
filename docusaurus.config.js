@@ -1,6 +1,8 @@
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const { themes } = require('prism-react-renderer');
 const algoliaConfig = require('./algolia-config');
+
+const lightCodeTheme = themes.github;
+const darkCodeTheme = themes.dracula;
 
 const config = {
   title: 'Suites',
@@ -10,7 +12,7 @@ const config = {
   onBrokenLinks: 'ignore',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.png',
-  organizationName: 'Automock',
+  organizationName: 'Suites',
   projectName: 'suites.dev',
   headTags: [
     {
@@ -41,7 +43,7 @@ const config = {
           routeBasePath: 'docs',
           sidebarPath: require.resolve('./docs-sidebars.js'),
           remarkPlugins: [
-            [require('@docusaurus/remark-plugin-npm2yarn'), { sync: true }],
+            [require('@docusaurus/remark-plugin-npm2yarn'), {sync: true}],
           ],
         },
         theme: {
@@ -71,8 +73,11 @@ const config = {
   ],
   themeConfig: {
     metadata: [
-      { name: 'keywords', content: 'auto mocking, dependency injection, inversion of control, jest, sinon, nestjs, inversifyjs' },
-      { name: 'description', content: 'Standalone Library for Automated Mocking of Class Dependencies.' },
+      {
+        name: 'keywords',
+        content: 'auto mocking, dependency injection, inversion of control, jest, sinon, nestjs, inversifyjs'
+      },
+      {name: 'description', content: 'Standalone Library for Automated Mocking of Class Dependencies.'},
     ],
     colorMode: {
       disableSwitch: true,
@@ -80,9 +85,9 @@ const config = {
     },
     algolia: algoliaConfig,
     navbar: {
-      title: 'Automock',
+      title: 'Suites',
       logo: {
-        alt: 'Automock Logo',
+        alt: 'Suites Logo',
         src: 'img/logo.png',
       },
       items: [
@@ -114,4 +119,4 @@ const config = {
   },
 };
 
-module.exports = config;
+export default config;

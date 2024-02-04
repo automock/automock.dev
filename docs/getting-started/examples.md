@@ -1,9 +1,9 @@
 ---
 sidebar_position: 3
-description: 'A collection of examples showcasing the functionality and versatility of Automock.'
+description: A collection of examples showcasing the functionality and versatility of Suites.
 ---
 
-# Step-by-Step Example
+# Examples
 
 **This page contains a step-by-step example that demonstrates how to use Automock effectively.**
 

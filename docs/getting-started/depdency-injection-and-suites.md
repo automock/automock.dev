@@ -1,9 +1,9 @@
 ---
 sidebar_position: 4
-title: Dependency Injection & Automock
+title: Dependency Injection & Suites
 ---
 
-# Dependency Injection and Automock
+# Dependency Injection and Suites
 
 ## The Challenge of Testing with Traditional DI
 

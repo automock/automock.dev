@@ -1,53 +1,64 @@
 ---
 sidebar_position: 2
+title: Installation Guide
+description: Learn how to install and configure Suites to enhance your unit testing process across various DI frameworks and testing libraries.
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 
-# Installation
+# Installation Guide
 
-## Quick Install
+**Suites is a versatile and flexible meta-framework, compatible with a wide range of testing and dependency injection
+(DI) frameworks. This guide provides step-by-step instructions for installing Suites and highlights important
+compatibility and configuration details.**
 
-To fully integrate Automock into your testing and dependency injection  frameworks, **you'll need to install two
-packages: the Automock package for your chosen testing framework and the corresponding DI framework adapter.**
+## Quick Start
 
-For **Jest**:
-
-```bash npm2yarn
-$ npm i -D @suites/jest
-```
-
-For **Sinon**:
-
-```bash npm2yarn
-$ npm i -D @suites/sinon
-```
-
-**And for your DI framework, choose the appropriate Automock adapter:**
+To install Suites, select the adapter and testbed that align with your project's DI framework and preferred testing
+library. For instance, if you pick Jest as your testbed, you can:
 
 <Tabs groupId="suites-adapter" className="adapters-tabs" queryString="suites-adapter">
   <TabItem attributes={{className: 'nestjs'}} value="nestjs" label="NestJS" default>
     <CodeBlock language="bash">
-      {`$ npm i -D @suites/adapters.nestjs`}
+      {`$ npm install --save-dev @suites/adapters.nestjs @suites/jest`}
     </CodeBlock>
   </TabItem>
   <TabItem attributes={{className: 'inversifyjs'}} value="inverisfyjs" label="InversifyJS">
     <CodeBlock language="bash">
-      {`$ npm i -D @suites/adapters.inversify`}
+      {`$ npm install --save-dev @suites/adapters.inversify @suites/jest`}
     </CodeBlock>
   </TabItem>
 </Tabs>
 
-| **DI Framework Adapter**                               | **Jest (`@suites/jest`)** | **Sinon (`@suites/sinon`)** |
-|--------------------------------------------------------|-----------------------------|-------------------------------|
-| **NestJS Adapter (`@suites/adapters.nestjs`)**       | :white_check_mark:          | :white_check_mark:            |
-| **Inversify Adapter (`@suites/adapters.inversify`)** | :white_check_mark: (Beta)   | :white_check_mark: (Beta)     |
+### Supported Combinations
+
+Below is a table illustrating the compatibility of Suites with various DI frameworks and testing libraries:
+
+| **Package Name (Mock / DI )**                  | **Jest (`jest`)**  | **Sinon (`sinon`)** | **Vitest (`vitest`)** | **Bun (`bun`)** |
+|------------------------------------------------|:------------------:|:-------------------:|:---------------------:|:---------------:|
+| **NestJS Adapter (`adapters.nestjs`)**         | :white_check_mark: | :white_check_mark:  |       **Soon**        |    **Soon**     |
+| **InversifyJS Adapter (`adapters.inversify`)** | :white_check_mark: | :white_check_mark:  |       **Soon**        |    **Soon**     |
+| **TSyringe Adapter (`adapters.tsyringe`)**     |      **Soon**      |      **Soon**       |       **Soon**        |    **Soon**     |
+
+## Compatibility
+
+Suites supports a variety of combinations of DI frameworks and testing libraries. Depending on your project's specific
+needs, you can mix and match "adapter" and "testbed" packages from Suites.
+
+### Monorepos
+
+Suites is fully compatible with Monorepos, accommodating projects that utilize different DI frameworks. Ensure you
+install the correct adapter for each workspace within your Monorepo. In some cases, multiple adapters may be necessary
+to support different frameworks within your project.
+
+### Instructions for Vitest
+
+When integrating Suites with Vitest, additional configuration is required. Vitest typically uses `esbuild` for
+TypeScript interpretation, which doesn't support `emitDecoratorMetadata` - a feature extensively used by Suites for
+reflecting class dependencies. To overcome this, switch to using `@swc/core` via a plugin, which
+supports `emitDecoratorMetadata`. For detailed guidance, see the [Vitest documentation](https://vitest.dev/docs/).
 
 
-## Seamless Integration with Different DI Frameworks
-
-Automock extends its capabilities to integrate with various dependency injection  frameworks, such as NestJS and
-InversifyJS, among others. Detailed insights into Automock's adaptability across frameworks are provided on our
-dedicated [Adapters](/docs/adapters/intro) page.
+**For more detailed examples and advanced configurations, visit our [Examples Area](link-to-examples).**
