@@ -57,9 +57,6 @@
 /* highlights section CSS */
 
 
-
-
-
 /* Everything Need section CSS */
 .blocksWrapper {
   padding: 100px 0;
@@ -513,7 +510,7 @@
   .newsletterForm .formControl {
     margin-left: 0;
   }
-  
+
   .newsletterWrapper .envelopeBg svg {
     width: 280px;
   }

@@ -1,5 +1,3 @@
-
-
 /* Header CSS */
 .navbarSticky {
   position: fixed;
@@ -25,6 +23,7 @@
 }
 
 .navbarSticky .navbar {
+  font-family: "Montserrat", sans-serif;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -110,6 +109,7 @@
 }
 
 .pageHeader {
+  font-family: "Montserrat", sans-serif;
   /*background-image: url("../../../static/img/header.1af6756a.png");*/
   background-position: center top;
   background-size: cover;

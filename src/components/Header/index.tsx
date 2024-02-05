@@ -88,7 +88,7 @@ export default function Header(): JSX.Element {
                 A progressive testing meta-framework elevating the unit testing process within dependency injection frameworks.
               </h4>
               <div className={styles.buttonsWrapper}>
-                <a href="https://suites.dev/docs" className={`${styles.btn} ${styles.documentationBtn}`}>Documentation</a>
+                <a href="/docs" className={`${styles.btn} ${styles.documentationBtn}`}>Documentation</a>
                 <a href="https://github.com/suites-dev/suites" className={`${styles.btn} ${styles.sourceBtn}`}>
                   <FaGithub />
                   <span>Source Code</span>

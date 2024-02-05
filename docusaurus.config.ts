@@ -1,10 +1,12 @@
-const { themes } = require('prism-react-renderer');
-const algoliaConfig = require('./algolia-config');
+import { themes } from 'prism-react-renderer';
+import algoliaConfig from './algolia-config';
+import type { Config } from '@docusaurus/types';
+import type * as Preset from '@docusaurus/preset-classic';
 
 const lightCodeTheme = themes.github;
 const darkCodeTheme = themes.dracula;
 
-const config = {
+const config: Config = {
   title: 'Suites',
   tagline: 'Standalone Library for Automated Mocking of Class Dependencies',
   url: 'https://suites.dev',
@@ -115,7 +117,7 @@ const config = {
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
-    },
+    } satisfies Preset.ThemeConfig,
   },
 };
 
