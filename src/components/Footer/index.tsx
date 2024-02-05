@@ -20,12 +20,13 @@ export default function Footer(): JSX.Element {
           <FaLinkedin />
         </Link>
       </div>
-      <p> Released under the MIT License <br /> Official NestJS Consulting <Link href="https://trilon.io"
-        title="Official NestJS Consulting | Angular Consulting" target="_blank">Trilon.io</Link><br /> Copyright
-        © 2024 - <Link href="https://twitter.com/kammysliwiec" target="_blank">Kamil Mysliwiec</Link> <br /> Designed
-        by <Link href="https://dribbble.com/JakubStaron" target="_blank">Jakub Staron</Link>, hosted by <Link
-          href="https://www.netlify.com" target="_blank" rel="nofollow">Netlify</Link> <br /> <Link
-            href="https://github.com/nestjs/nest/blob/master/readme_zh.md" target="_blank">中文说明</Link> </p>
+      <p>
+        Released under the MIT License
+        <br />
+        Copyright © 2024 - <Link href="https://twitter.com/kammysliwiec" target="_blank">Omer Morad</Link>
+        <br />
+        hosted by <Link href="https://www.netlify.com" target="_blank" rel="nofollow">Netlify</Link>
+      </p>
     </div>
   </footer >
   );

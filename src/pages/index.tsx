@@ -439,47 +439,7 @@ function Homepage() {
             sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
         </div>
       </div>
-      <div className={styles.sponsorsWrapper} id="sponsors">
-        <div className="container">
-          <h4>Support us</h4>
-          <p> Nest is an MIT-licensed open-source project. Hence, it grows thanks to the sponsors and support by the
-            amazing backers. Please, consider supporting us! </p>
-          <div className={styles.supportSection}>
-            <h5>Principal sponsors</h5>
-            {principalSponsorsData.map((item, index) =>
-              <a href={item.link} target="_blank" key={index}>
-                <img src={item.image} />
-              </a>
-            )}
-          </div>
-          <div className={`${styles.supportSection} ${styles.supportSection__gold}`}>
-            <h5>Gold sponsors</h5>
-            {goldSponsorsData.map((item, index) =>
-              <a href={item.link} target="_blank" key={index}>
-                <img src={item.image} />
-              </a>
-            )}
-          </div>
-          <div className={`${styles.supportSection} ${styles.supportSection__silver}`}>
-            <h5>Silver sponsors</h5>
-            {silverSponsorsData.map((item, index) =>
-              <a href={item.link} target="_blank" key={index}>
-                <img src={item.image} />
-              </a>
-            )}
-          </div>
-          <div className={`${styles.supportSection} ${styles.supportSection__bronze}`}>
-            <h5>Sponsors / Partners</h5>
-            {bronzeSponsorsData.map((item, index) =>
-              <a href={item.link} target="_blank" key={index}>
-                <img src={item.image} />
-              </a>
-            )}
-          </div>
-          <a href="https://docs.nestjs.com/support" target="_blank"
-            className={styles.btnPrimary}>Become a sponsor <span>/</span> backer</a>
-        </div>
-      </div>
+
       <div className={styles.newsletterWrapper}>
         <div className="container">
           <div className={styles.envelopeBg}>
@@ -500,7 +460,7 @@ function Homepage() {
           </div>
         </div>
       </div>
-      
+
     </>
   );
 }
