@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 1
 title: Dependency Injection & Suites
 ---
 
@@ -32,9 +32,3 @@ is an array of advantages to this change:
 
 * **Isolation:** Each test runs independently with mock implementations automatically provided, creating a
   streamlined and interference-free testing environment.
-
-:::info
-**A frequently asked question is, "Does Automock work with the built-in unit testing tools in my framework?" The answer is
-that you no longer rely on the native testing tools of your DI framework. Instead, Automock's virtual environment takes
-precedence.**
-:::

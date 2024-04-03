@@ -3,8 +3,8 @@
   background-color: #f1f3f3;
   text-align: center;
   color: #090909;
-  padding: 60px 0;
-  font-family: "Montserrat", sans-serif;
+  padding: 30px 0;
+  font-weight: bold;
 }
 
 .pageFooter .icon {
@@ -21,11 +21,11 @@
   font-size: 14px;
   font-weight: 500;
   line-height: 26px;
-  color: #a5a5a5;
+  color: rgba(96, 95, 95, 0.87);
 }
 
 .pageFooter p a {
-  color: #ea2845;
+  color: var(--ifm-color-primary);
   font-weight: 600;
 }
 /* Footer section CSS */

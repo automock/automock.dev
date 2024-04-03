@@ -1,5 +1,7 @@
 /* highlights section CSS */
 .highlightsWrapper {
+  font-family: "Barlow", sans-serif;
+  color: #000000;
   background: #f1f3f3;
   padding: 100px 0;
   text-align: center;
@@ -59,6 +61,8 @@
 
 /* Everything Need section CSS */
 .blocksWrapper {
+  font-family: "Barlow", sans-serif;
+  color: #000000;
   padding: 100px 0;
   text-align: center;
   background: #fafafa;
@@ -77,6 +81,7 @@
 }
 
 .blocksWrapper .heading h4 {
+  font-family: "Barlow", sans-serif;
   font-size: 36px;
   margin: 0;
   line-height: 60px;
@@ -149,10 +154,11 @@
 
 /* Enterprise section CSS */
 .enterpriseWrapper {
+  font-family: "Barlow", sans-serif;
   background-image: url("../../static/img/support.png");
   background-position: left bottom;
   background-repeat: no-repeat;
-  background-color: #ed1543;
+  background-color: var(--ifm-color-primary);
   height: 500px;
   overflow: hidden;
 }
@@ -165,6 +171,7 @@
 }
 
 .enterpriseColumn h2 {
+  font-family: "Barlow", sans-serif;
   font-size: 32px;
   margin-top: 0;
 }

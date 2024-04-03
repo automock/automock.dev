@@ -29,27 +29,22 @@ export default function Header(): JSX.Element {
           <div className={styles.navbar}>
             <div className={styles.logoWrapper}>
               <Link href="/">
-                <img src="img/logo.png" alt="NestJS - A progressive Node.js framework" />
+                <img src="img/logo.png" alt="Suites Logo" />
               </Link>
             </div>
             <ul className={styles.navWrapper}>
               <li className={styles.hidden_xs}>
-                <Link href="#" title="Documentation | NestJS - A progressive Node.js framework">Docs</Link>
+                <Link href="#" title="Documentation | Suites">Docs</Link>
               </li>
               <li className={styles.hidden_sm}>
-                <Link href="#" title="Enterprise | NestJS - A progressive Node.js framework">App Templates</Link>
+                <Link href="/learn" title="API Reference | Suites">API Reference</Link>
               </li>
-              {/*<li className={styles.hidden_md}>*/}
-              {/*  <Link href="#" title="Devtools | NestJS - A progressive Node.js framework"><span className={styles.new}>NEW</span>*/}
-              {/*    DEVTOOLS</Link> </li>*/}
+              <li className={styles.hidden_sm}>
+                <Link href="/learn" title="Learn | Suites">Learn</Link>
+              </li>
               <li>
                 <Link href="#" target="_blank" className={styles.icon}>
                   <FaGithub />
-                </Link>
-              </li>
-              <li>
-                <Link href="#" target="_blank" className={styles.icon}>
-                  <FaXTwitter />
                 </Link>
               </li>
             </ul>
@@ -57,40 +52,42 @@ export default function Header(): JSX.Element {
         </div>
       </div>
       <header className={styles.pageHeader}>
+        <div className={styles.subWrapper}>
+          <div className={styles.logoWrapper}>
+            <Link href="/" className={styles.logoLink}>
+              <img src="img/logo.png" alt="Suites Logo"/> <span>Suites</span>
+            </Link>
+          </div>
+          <nav>
+            <ul className={styles.navWrapper}>
+              <li className={styles.hidden_xs}>
+                <Link href="/docs" title="Documentation | Suites">Documentation</Link>
+              </li>
+              <li className={styles.hidden_sm}>
+                <Link href="/learn" title="Learn | Suites">Learn</Link>
+              </li>
+              <li className={styles.hidden_sm}>
+                <Link href="/learn" title="API Reference | Suites">API Reference</Link>
+              </li>
+              <li>
+                <Link href="https://github.com/suites-dev/suites" target="_blank" className="icon m-l-30">
+                  <FaGithub/>
+                </Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
         <div className="container">
           <div className={styles.topWrapper}>
-            <div className={styles.logoWrapper}>
-              <Link href="/">
-                <img src="img/logo.png" alt="Suites" />
-              </Link>
-            </div>
-            <nav>
-              <ul className={styles.navWrapper}>
-                <li className={styles.hidden_xs}>
-                  <Link href="#" title="Documentation | NestJS - A progressive Node.js framework">Docs</Link>
-                </li>
-                <li className={styles.hidden_sm}>
-                  <Link href="#" title="Enterprise | NestJS - A progressive Node.js framework">App Templates</Link>
-                </li>
-                {/*<li className={styles.hidden_md}>*/}
-                {/*  <Link href="#" title="Devtools | NestJS - A progressive Node.js framework"><span className={styles.new}>NEW</span>*/}
-                {/*    DEVTOOLS</Link> </li>*/}
-                <li>
-                  <Link href="#" target="_blank" className="icon m-l-30">
-                    <FaGithub />
-                  </Link>
-                </li>
-              </ul>
-            </nav>
             <div className={styles.mainWrapper}>
-              <h1>Suites</h1>
-              <h4>
-                A progressive testing meta-framework elevating the unit testing process within dependency injection frameworks.
-              </h4>
+              <img src="img/logo.png" alt="Suites Logo" className={styles.mainLogo}/>
+              <h1>Suites <span>(formerly Automock)</span></h1>
+              <h4>An opinionated, progressive testing meta-framework</h4>
               <div className={styles.buttonsWrapper}>
                 <a href="/docs" className={`${styles.btn} ${styles.documentationBtn}`}>Documentation</a>
                 <a href="https://github.com/suites-dev/suites" className={`${styles.btn} ${styles.sourceBtn}`}>
-                  <FaGithub />
+                  <FaGithub/>
                   <span>Source Code</span>
                 </a>
               </div>

@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-title: Installation Guide
+title: Installation
 description: Learn how to install and configure Suites to enhance your unit testing process across various DI frameworks and testing libraries.
 ---
 
@@ -8,57 +8,101 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 
-# Installation Guide
+**Suites is compatible with a wide range of testing and dependency injection frameworks. This section provides
+instructions for installing Suites and highlights important compatibility and configuration details.**
 
-**Suites is a versatile and flexible meta-framework, compatible with a wide range of testing and dependency injection
-(DI) frameworks. This guide provides step-by-step instructions for installing Suites and highlights important
-compatibility and configuration details.**
+## Setup Suites in a New or Existing Project
 
-## Quick Start
-
-To install Suites, select the adapter and testbed that align with your project's DI framework and preferred testing
-library. For instance, if you pick Jest as your testbed, you can:
+When installing Suites, make sure to choose the adapter and mocking library that match your project's
+dependency-injection framework and preferred testing library.
 
 <Tabs groupId="suites-adapter" className="adapters-tabs" queryString="suites-adapter">
   <TabItem attributes={{className: 'nestjs'}} value="nestjs" label="NestJS" default>
     <CodeBlock language="bash">
-      {`$ npm install --save-dev @suites/adapters.nestjs @suites/jest`}
+      {`$ npm install --save-dev @suites/unit @suites/doubles.jest @suites/di.nestjs`}
     </CodeBlock>
   </TabItem>
   <TabItem attributes={{className: 'inversifyjs'}} value="inverisfyjs" label="InversifyJS">
     <CodeBlock language="bash">
-      {`$ npm install --save-dev @suites/adapters.inversify @suites/jest`}
+      {`$ npm install --save-dev @suites/unit @suites/doubles.jest @suites/di.inversify`}
+    </CodeBlock>
+  </TabItem>
+  <TabItem attributes={{className: 'tsyringe'}} value="tsyringe" label="TSyringe">
+    <CodeBlock language="bash">
+      {`$ npm install --save-dev @suites/unit @suites/doubles.jest @suites/di.tsyringe`}
     </CodeBlock>
   </TabItem>
 </Tabs>
 
-### Supported Combinations
+### Supported Testing Libraries and DI Frameworks (Adapters)
+* **Available DI Adapters:**
+  * `@suites/di.nestjs`
+  * `@suites/di.inversify`
+  * `@suites/di.tsyringe`
 
-Below is a table illustrating the compatibility of Suites with various DI frameworks and testing libraries:
+* **Available Mocking Libraries:**
+  * `@suites/doubles.jest`
+  * `@suites/doubles.sinon`
+  * `@suites/doubles.vitest`
+  * `@suites/doubles.bun`
 
-| **Package Name (Mock / DI )**                  | **Jest (`jest`)**  | **Sinon (`sinon`)** | **Vitest (`vitest`)** | **Bun (`bun`)** |
-|------------------------------------------------|:------------------:|:-------------------:|:---------------------:|:---------------:|
-| **NestJS Adapter (`adapters.nestjs`)**         | :white_check_mark: | :white_check_mark:  |       **Soon**        |    **Soon**     |
-| **InversifyJS Adapter (`adapters.inversify`)** | :white_check_mark: | :white_check_mark:  |       **Soon**        |    **Soon**     |
-| **TSyringe Adapter (`adapters.tsyringe`)**     |      **Soon**      |      **Soon**       |       **Soon**        |    **Soon**     |
+**After installation, no additional configuration for the test runner is required.**
 
-## Compatibility
+### Setting Up `tsconfig.json`
+In order to use Suites, you need to enable the [`emitDecoratorMetadata`](https://www.typescriptlang.org/tsconfig#emitDecoratorMetadata) and [`experimentalDecorators`](https://www.typescriptlang.org/tsconfig#experimentalDecorators) options in your `tsconfig.json` file.
+This configuration is necessary for Suites to reflect class dependencies and to work with dependency injection frameworks.
 
-Suites supports a variety of combinations of DI frameworks and testing libraries. Depending on your project's specific
-needs, you can mix and match "adapter" and "testbed" packages from Suites.
+```json title="tsconfig.json"
+{
+  "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
+  }
+}
+```
 
-### Monorepos
+### For Vitest Users
 
-Suites is fully compatible with Monorepos, accommodating projects that utilize different DI frameworks. Ensure you
+When integrating Suites with Vitest, additional configuration is required. Vitest typically uses [`esbuild`](https://esbuild.github.io/) for
+TypeScript interpretation, which doesn't support `emitDecoratorMetadata` - a feature extensively used by Suites for
+reflecting class dependencies. To overcome this, switch to using [`@swc/core`](https://swc.rs/docs/usage/core) via a
+plugin, which supports `emitDecoratorMetadata`. For detailed guidance, see the [Vitest documentation](https://vitest.dev/).
+
+Here is an example of how to configure Suites with Vitest:
+
+First, install the `unplugin-swc` and `@swc/core` packages and add it to your `vitest.config.ts` file as a plugin.
+This will enable `@swc/core` to interpret TypeScript files and support `emitDecoratorMetadata`.
+
+```bash
+$ npm install --save-dev unplugin-swc @swc/core
+```
+
+```typescript title="vitest.config.ts"
+import swc from 'unplugin-swc';
+import { defineConfig } from 'vitest/config';
+
+export default defineConfig({
+  test: {
+    globals: true,
+    root: './',
+  },
+  plugins: [
+    // This is required to build the test files with SWC
+    swc.vite({
+      // Explicitly set the module type to avoid inheriting this value from a `.swcrc` config file
+      module: { type: 'es6' },
+    }),
+  ],
+});
+
+```
+
+## Monorepo Support
+
+Suites is fully compatible with Monorepo, accommodating projects that use different DI frameworks. Ensure you
 install the correct adapter for each workspace within your Monorepo. In some cases, multiple adapters may be necessary
 to support different frameworks within your project.
 
-### Instructions for Vitest
-
-When integrating Suites with Vitest, additional configuration is required. Vitest typically uses `esbuild` for
-TypeScript interpretation, which doesn't support `emitDecoratorMetadata` - a feature extensively used by Suites for
-reflecting class dependencies. To overcome this, switch to using `@swc/core` via a plugin, which
-supports `emitDecoratorMetadata`. For detailed guidance, see the [Vitest documentation](https://vitest.dev/docs/).
-
-
-**For more detailed examples and advanced configurations, visit our [Examples Area](link-to-examples).**
+## What's Next?
+After installing Suites, you can start writing your first test.
+Check out the [Developer Guide](/docs/developer-guide) to learn how to write your first test using Suites.

@@ -1,36 +1,38 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 description: A collection of examples showcasing the functionality and versatility of Suites.
 ---
 
 # Examples
 
-**This page contains a step-by-step example that demonstrates how to use Automock effectively.**
+**This page contains a step-by-step example that demonstrates how to use Suites effectively.**
 
 Please note that this example is agnostic to the testing framework (we'll use Jest) and any specific framework's
 adapter. The injection mechanism might differ based on the DI framework.
 For more details on the different adapters available and their specific functionalities, refer to the
-[adapters page](/docs/adapters/intro).
+[adapters page](/docs/developer-guide/adapters/intro).
 
 ---
 
 In this example, we have a `UserService` class that depends on a `Database` class to fetch users. We'll mock
 the `Database` class to test the `UserService` class in isolation.
 
-:::tip
+:::info
 In software testing, a "unit" refers to the smallest testable part of an application. It can be a function, method,
 procedure, module, or object. **In the context of Automock, we consider the unit to be a TypeScript class.**
 :::
 
 ### Step 1: Define the Classes
 
-Here are the two classes:
+Here are the two classes under one file (for the sake of simplicity):
 
-```typescript
+```typescript title="services.ts"
+@Injecable()
 export class Database {
   async getUsers(): Promise<User[]> { ... }
 }
 
+@Injecable()
 export class UserService {
   constructor(private database: Database) {}
 
@@ -42,12 +44,19 @@ export class UserService {
 
 **Here, we consider the `UserService` to be the unit under test.**
 
+:::info
+We're using the `@Injectable` decorator to mark the classes as injectable. This will change based on the DI framework
+you're using.
+:::
+
+
 ### Step 2: Set Up the Test
 
 **We'll use the `TestBed` factory from `@suites/jest` package to create our test environment.**
 
-```typescript
+```typescript title="user.service.spec.ts" {1,9,11-12} showLineNumbers
 import { TestBed } from '@suites/jest';
+import { Database, UserService } from './services';
 
 describe('User Service Unit Test', () => {
   let userService: UserService;
@@ -74,7 +83,7 @@ describe('User Service Unit Test', () => {
 
 **In this test setup, we:**
 
-1. Created a test environment for `UserService`.
+1. Created a test environment for `UserService`. (line `9`)
 2. Obtained the actual instance of `UserService` and a mocked instance of `Database` using `unit` and `unitRef.get
    (Database)`, respectively.
 3. We mocked the `getUsers` method of the `Database` class to return a predefined list of users.

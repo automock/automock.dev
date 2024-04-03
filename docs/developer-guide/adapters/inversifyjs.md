@@ -25,7 +25,7 @@ export class Samurai {
 ```
 
 `@multiInject` decorator work exactly the same as the `@inject` decorator, refer to
-the [Token-based injection](/docs/adapters/identifiers?suites-adapter=inverisfyjs#token-based-injection)
+the [Token-based injection](/docs/developer-guide/adapters/identifiers?suites-adapter=inverisfyjs#token-based-injection)
 
 > :books: Read more
 > about [multi-injection](https://github.com/inversify/InversifyJS/blob/master/wiki/multi_injection.md) in the InversifyJS

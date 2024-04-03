@@ -1,281 +1,312 @@
 /* Header CSS */
 .navbarSticky {
-  position: fixed;
-  z-index: 100000;
-  left: 0;
-  right: 0;
-  height: 60px;
-  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.07);
-  background: #fff;
-  padding: 8px 0;
-  opacity: 0;
-  transform: translate3d(0, -100%, 0);
-  -webkit-transform: translate3d(0, -100%, 0);
-  transition: all 180ms ease-in-out;
-  -ms-transition: all 180ms ease-in-out;
-  -webkit-transition: all 180ms ease-in-out;
+    position: fixed;
+    z-index: 100000;
+    left: 0;
+    right: 0;
+    height: 60px;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.07);
+    background: var(--ifm-background-color);
+    padding: 8px 0;
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+    -webkit-transform: translate3d(0, -100%, 0);
+    transition: all 180ms ease-in-out;
+    -ms-transition: all 180ms ease-in-out;
+    -webkit-transition: all 180ms ease-in-out;
 }
 
 .navbarSticky.visible {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
 }
 
 .navbarSticky .navbar {
-  font-family: "Montserrat", sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.navbarSticky .logoWrapper a {
-  display: inline-block;
+.logoLink {
+    display: flex;
+    align-items: center;
+    color: var(--ifm-background-color);
+    font-weight: 500;
+}
+
+.logoLink span {
+    margin-left: 10px;
+    display: block;
 }
 
 .navbarSticky .logoWrapper img {
-  width: 40px;
-  max-height: 40px;
+    width: 40px;
+    max-height: 40px;
 }
 
 .navbarSticky .navWrapper {
-  margin: 0;
-  padding: 0;
-  max-width: calc(100% - 50px);
-  text-align: right;
-  vertical-align: middle;
-  display: flex;
-  align-items: center;
-  list-style-type: none;
+    margin: 0;
+    padding: 0;
+    max-width: calc(100% - 50px);
+    text-align: right;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    list-style-type: none;
 }
 
 .navbar-sticky .navWrapper li {
-  display: inline-block;
-  vertical-align: middle;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .navbarSticky .navWrapper a {
-  color: #090909;
-  /* color: var(--ifm-color-primary); */
-  font-size: 14px;
-  margin-left: 20px;
-  font-weight: 700;
-  transition: all .1s ease-in;
-  display: flex;
-  align-items: center;
+    color: var(--ifm-color-primary-darkest);
+    /* color: var(--ifm-color-primary); */
+    font-size: 14px;
+    margin-left: 20px;
+    font-weight: 700;
+    transition: all .1s ease-in;
+    display: flex;
+    align-items: center;
 }
 
 .navbarSticky .navWrapper a:hover {
-  color: #ea2845;
+    color: var(--ifm-color-primary);
 }
 
 .navbarSticky .navWrapper .icon {
-  margin-left: 12px;
-  font-size: 16px;
+    margin-left: 12px;
+    font-size: 16px;
 }
 
 .new {
-  color: #fff;
-  background: #ea2845;
-  font-size: 11px;
-  line-height: 1.2;
-  padding: 2px 4px;
-  border-radius: 2px;
-  margin-right: 2px;
-  display: inline-block;
+    color: #fff;
+    background: var(--ifm-color-primary);
+    font-size: 11px;
+    line-height: 1.2;
+    padding: 2px 4px;
+    border-radius: 2px;
+    margin-right: 2px;
+    display: inline-block;
 }
 
-
 @media (max-width: 1020px) {
-  .hidden_md {
-    display: none!important;
-  }
+    .hidden_md {
+        display: none !important;
+    }
 }
 
 @media (max-width: 920px) {
-  .hidden_sm {
-    display: none!important;
-  }
+    .hidden_sm {
+        display: none !important;
+    }
 
-  .navbarSticky {
-    display: none;
-  }
+    .navbarSticky {
+        display: none;
+    }
 }
 
 @media (max-width: 640px) {
-  .hidden_xs {
-    display: none!important;
-  }
+    .hidden_xs {
+        display: none !important;
+    }
 }
 
 .pageHeader {
-  font-family: "Montserrat", sans-serif;
-  /*background-image: url("../../../static/img/header.1af6756a.png");*/
-  background-position: center top;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: #1a1a1a;
-  background-attachment: fixed;
-  color: #fff;
-  min-height: 700px;
+    font-family: "Barlow", sans-serif;
+    /*background-image: url("../../../static/img/header.1af6756a.png");*/
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #23272f;
+    background-attachment: fixed;
+    color: #fff;
+    min-height: 620px;
+}
+
+.subWrapper {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 20px 30px;
 }
 
 .topWrapper {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
 }
 
+.subWrapper img,
+.subWrapper svg,
 .logoWrapper svg,
 .logoWrapper img {
-  max-width: 70px;
+    max-width: 36px;
 }
 
 .navWrapper a {
-  font-weight: bold;
-  color: #fff;
-  font-size: 16px;
-  margin-left: 25px;
-  transition: all 100ms ease-in;
-  -moz-transition: all 100ms ease-in;
-  -webkit-transition: all 100ms ease-in;
+    font-weight: bold;
+    color: #fff;
+    font-size: 16px;
+    margin-left: 25px;
+    transition: all 100ms ease-in;
+    -moz-transition: all 100ms ease-in;
+    -webkit-transition: all 100ms ease-in;
 }
 
 .navWrapper a:hover {
-  color: #ea2845;
+    color: var(--ifm-color-primary);
 }
 
 .navWrapper li {
-  display: inline-block;
-  vertical-align: middle;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .navWrapper .icon {
-  margin-left: 27px;
-  font-size: 22px;
+    margin-left: 27px;
+    font-size: 22px;
 }
 
 .mainWrapper {
-  width: 100%;
-  padding-top: 140px;
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.mainWrapper img.mainLogo {
+    display: block;
+    width: 120px;
 }
 
 .mainWrapper h1 {
-  font-weight: 600;
-  font-size: 55px;
-  margin: 0 0 5px;
-  line-height: 75px;
+    font-family: "Barlow", sans-serif;
+    font-weight: 600;
+    font-size: 55px;
+    margin-top: 20px;
+    padding: 10px 0;
+}
+
+.mainWrapper h1 span {
+    display: block;
+    font-size: 20px;
 }
 
 .mainWrapper h4 {
-  font-weight: 500;
-  max-width: 600px;
-  margin: 0;
-  font-size: 18px;
-  line-height: 32px;
+    font-family: "Barlow", sans-serif;
+    font-weight: 400;
+    max-width: 650px;
+    margin: 0;
+    font-size: 20px;
+    line-height: 28px;
 }
 
 .buttonsWrapper {
-  padding: 60px 0;
+    margin: 40px 0;
 }
 
 .buttonsWrapper .btn:first-child {
-  margin-right: 20px;
+    margin-right: 20px;
 }
 
 .buttonsWrapper .btn .fa-github {
-  margin-right: 6px;
-  font-size: 18px;
-  vertical-align: middle;
+    margin-right: 6px;
+    font-size: 18px;
+    vertical-align: middle;
 }
 
 .btn {
-  font-weight: 500;
-  font-size: 16px;
-  color: #fff;
-  text-align: center;
-  padding: 14px 28px;
-  min-width: 230px;
-  border-radius: 30px;
-  transition: all 100ms ease-in;
-  display: inline-block;
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    padding: 12px 24px;
+    min-width: 120px;
+    border-radius: 30px;
+    transition: all 100ms ease-in;
+    display: inline-block;
 }
 
 .btn img {
-  margin-right: 5px;
+    margin-right: 5px;
 }
 
 .btn span {
-  vertical-align: middle;
+    vertical-align: middle;
 }
 
 .btn.documentationBtn {
-  background: var(--ifm-color-primary);
-  border: 2px solid var(--ifm-color-primary);
-  color: #fff;
+    background: var(--ifm-color-primary);
+    border: 2px solid var(--ifm-color-primary);
+    color: #fff;
 }
 
 .btn.documentationBtn:hover {
-  border: 2px solid var(--ifm-color-primary);
-  background: transparent;
-  color: #fff;
+    border: 2px solid var(--ifm-color-primary);
+    background: transparent;
+    color: #fff;
 }
 
 .btn.sourceBtn {
-  border: 2px solid #fff;
-  color: #fff;
+    border: 2px solid #fff;
+    color: #fff;
 }
 
 .btn.sourceBtn:hover {
-  border: 2px solid var(--ifm-color-primary);
-  color: var(--ifm-color-primary);
+    border: 2px solid var(--ifm-color-primary);
+    color: var(--ifm-color-primary);
 }
 
 .buttonsWrapper .btn svg {
-  margin-right: 6px;
-  font-size: 18px;
-  vertical-align: middle;
+    margin-right: 6px;
+    font-size: 18px;
+    vertical-align: middle;
 }
 
 @media (max-width: 991px) {
-  .mainWrapper {
-    text-align: center;
-  }
+    .mainWrapper {
+        text-align: center;
+    }
 
-  .main-wrapper h4 {
-    margin-right: auto;
-    margin-left: auto;
-  }
+    .main-wrapper h4 {
+        margin-right: auto;
+        margin-left: auto;
+    }
 
-  .buttonsWrapper .btn,
-  .buttonsWrapper .btn:first-child {
-    margin: 0 10px;
-  }
+    .buttonsWrapper .btn,
+    .buttonsWrapper .btn:first-child {
+        margin: 0 10px;
+    }
 }
 
 @media (max-width: 920px) {
-  .pageHeader {
-    background-position: 35% bottom;
-  }
+    .pageHeader {
+        background-position: 35% bottom;
+    }
 }
 
 @media (max-width: 640px) {
-  .mainWrapper {
-    padding-top: 100px;
-  }
+    .mainWrapper {
+        padding-top: 100px;
+    }
 
-  .buttonsWrapper .btn,
-  .buttonsWrapper .btn:first-child {
-    display: block;
-    max-width: 300px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+    .buttonsWrapper .btn,
+    .buttonsWrapper .btn:first-child {
+        display: block;
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-  .buttonsWrapper .btn:first-child {
-    margin-bottom: 20px;
-  }
+    .buttonsWrapper .btn:first-child {
+        margin-bottom: 20px;
+    }
 }
+
 /* Header CSS */

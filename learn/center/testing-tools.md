@@ -1,8 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
-# Testing Concepts and Tools
+# Testing Glossary
 
 In the realm of software testing, several key concepts and tools play pivotal roles. Understanding these helps in
 selecting the right tools for your project's needs.

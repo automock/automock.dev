@@ -1,10 +1,6 @@
-import { themes } from 'prism-react-renderer';
-import algoliaConfig from './algolia-config';
+import algoliaConfig from './config/algolia-config';
 import type { Config } from '@docusaurus/types';
-import type * as Preset from '@docusaurus/preset-classic';
-
-const lightCodeTheme = themes.github;
-const darkCodeTheme = themes.dracula;
+import { draculaThemeConfig } from './config/prisma-theme.config';
 
 const config: Config = {
   title: 'Suites',
@@ -24,13 +20,6 @@ const config: Config = {
         href: 'https://fonts.googleapis.com',
       },
     },
-    {
-      tagName: 'link',
-      attributes: {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&family=Roboto:wght@400;500;700&family=Urbanist:wght@500&display=swap',
-      },
-    },
   ],
   i18n: {
     defaultLocale: 'en',
@@ -43,7 +32,7 @@ const config: Config = {
         docs: {
           path: 'docs',
           routeBasePath: 'docs',
-          sidebarPath: require.resolve('./docs-sidebars.js'),
+          sidebarPath: require.resolve('./config/docs-sidebars.js'),
           remarkPlugins: [
             [require('@docusaurus/remark-plugin-npm2yarn'), {sync: true}],
           ],
@@ -66,7 +55,19 @@ const config: Config = {
         id: 'api-reference',
         path: 'api-reference',
         routeBasePath: 'api-reference',
-        sidebarPath: require.resolve('./api-sidebars.js'),
+        sidebarPath: require.resolve('./config/api-sidebars.js'),
+        remarkPlugins: [
+          [require('@docusaurus/remark-plugin-npm2yarn'), {sync: true}],
+        ],
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'learn',
+        path: 'learn',
+        routeBasePath: 'learn',
+        sidebarPath: require.resolve('./config/learn-sidebars.js'),
         remarkPlugins: [
           [require('@docusaurus/remark-plugin-npm2yarn'), {sync: true}],
         ],
@@ -99,6 +100,11 @@ const config: Config = {
           label: 'Docs',
         },
         {
+          to: '/learn',
+          label: 'Learn',
+          position: 'left',
+        },
+        {
           to: '/api-reference',
           label: 'API Reference',
           position: 'left',
@@ -110,14 +116,7 @@ const config: Config = {
         },
       ],
     },
-    footer: {
-      style: 'dark',
-      copyright: `Released under the MIT License <br /> Copyright © 2020-2023 <strong>Omer Morad</strong> <br /> Hosted by Netlify`,
-    },
-    prism: {
-      theme: lightCodeTheme,
-      darkTheme: darkCodeTheme,
-    } satisfies Preset.ThemeConfig,
+    prism: draculaThemeConfig,
   },
 };
 
