@@ -70,6 +70,17 @@ const config = {
     ],
   ],
   themeConfig: {
+    announcementBar: {
+      id: 'suites',
+      content: `
+      Announcement: Automock has transformed into <a href="https://suites.dev">Suites!</a> 🎉
+      <br>
+      <a href="https://suites.dev/docs/overview/migrating-from-automock">Find out more about the changeover</a> and the new features.
+      `,
+      backgroundColor: '#FFC2D4',
+      textColor: '#091E42',
+      isCloseable: false,
+    },
     metadata: [
       { name: 'keywords', content: 'auto mocking, dependency injection, inversion of control, jest, sinon, nestjs, inversifyjs' },
       { name: 'description', content: 'Standalone Library for Automated Mocking of Class Dependencies.' },
